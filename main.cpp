@@ -32,8 +32,13 @@ std::vector<std::string> UniqueRandS(int n) {
 }
 
 int main() {
-    int n = 1000;
-    std::vector<std::string> init = UniqueRandS(n);
+    int n = 10;
+    std::vector<int> init = UniqueRandN(n);
+    Treap<int> test(init);
+    test.Insert(4);
+    test.Delete(5);
+    test.TraverseInOrder(test.root);
+    //test.Delete(5);
     //AVLTree<int> test;
     //for (int i = 0; i < n/2; i++) {
 
