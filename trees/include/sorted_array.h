@@ -20,10 +20,10 @@ public:
 
     void Insert(T data) {
         std::vector<T>::iterator pos = std::upper_bound(m.begin(), m.end(), data);
-        if (m.size() == 0)
-            pos = m.begin();
-        if (*std::prev(pos) != data)
+        if (m.size() != 0 && *std::prev(pos) != data)
             m.insert(pos, data);
+        else
+            pos = m.begin();
     }
 
     void Delete(T data) {

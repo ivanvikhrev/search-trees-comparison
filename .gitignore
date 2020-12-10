@@ -1,2 +1,5 @@
 build
+debug.log
 .vscode
+*.pyd
+.ipynb_checkpoints
