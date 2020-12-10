@@ -1,6 +1,7 @@
 #include <algorithm>
 #include <vector>
 #include <iostream>
+#include <chrono>
 #include "node.h"
 #ifndef  AVL_TREE_H_
 #define AVL_TREE_H_
@@ -141,18 +142,43 @@ public:
         return p ? p->info : 0;
     }
 
-    void Insert(T data) { rotations_num = 0; root = InsertR(root, data); }
+    double Insert(T data) {
+        auto start = std::chrono::high_resolution_clock::now();
 
-    void Delete(T data) { root = DeleteR(root, data); }
+        rotations_num = 0; 
+        root = InsertR(root, data);
 
-    T Search(T data) {
+        auto stop = std::chrono::high_resolution_clock::now();
+        std::chrono::duration<double> time_span = 
+            std::chrono::duration_cast<std::chrono::duration<double>>(stop - start);
+        return static_cast<double>(time_span.count());
+    }
+
+    double Delete(T data) { 
+        auto start = std::chrono::high_resolution_clock::now();
+
+        root = DeleteR(root, data);
+
+        auto stop = std::chrono::high_resolution_clock::now();
+        std::chrono::duration<double> time_span = 
+            std::chrono::duration_cast<std::chrono::duration<double>>(stop - start);
+        return static_cast<double>(time_span.count());    
+    }
+
+    double Search(T data) {
+        auto start = std::chrono::high_resolution_clock::now();
+
         node<T> *cur = root;
         while (cur != nullptr && cur->data != data)
             if (data > cur->data)
                 cur = cur->right;
             else
                 cur = cur->left;
-        return cur ? cur->data : T();
+        auto stop = std::chrono::high_resolution_clock::now();
+        std::chrono::duration<double> time_span = 
+            std::chrono::duration_cast<std::chrono::duration<double>>(stop - start);
+        return static_cast<double>(time_span.count());    
+       // return cur ? cur->data : T();
     }
 
     void printDataInOrder() {

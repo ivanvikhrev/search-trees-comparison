@@ -20,17 +20,40 @@ public:
         for (auto const & x : inp) { m[x] = x; }
     }
 
-    T Search(T data) {
+    double Search(T data) {
+        auto start = std::chrono::high_resolution_clock::now();
+        
         auto el = m.find(data);
-        return el != m.end() ? *el : T();
+        
+        auto stop = std::chrono::high_resolution_clock::now();
+        std::chrono::duration<double> time_span = 
+            std::chrono::duration_cast<std::chrono::duration<double>>(stop - start);
+        return static_cast<double>(time_span.count());  
+        //return el != m.end() ? *el : T();
     }
 
-    void Insert(T data) {
+    double Insert(T data) {
+        auto start = std::chrono::high_resolution_clock::now();
+
         m.insert(data);
+        
+        auto stop = std::chrono::high_resolution_clock::now();
+        std::chrono::duration<double> time_span = 
+            std::chrono::duration_cast<std::chrono::duration<double>>(stop - start);
+        return static_cast<double>(time_span.count());  
+
     }
 
-    void Delete(T data) {
+    double Delete(T data) {
+        auto start = std::chrono::high_resolution_clock::now();
+
         m.erase(data);
+
+                
+        auto stop = std::chrono::high_resolution_clock::now();
+        std::chrono::duration<double> time_span = 
+            std::chrono::duration_cast<std::chrono::duration<double>>(stop - start);
+        return static_cast<double>(time_span.count());  
     }
 
     void printDataInOrder() {

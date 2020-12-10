@@ -233,26 +233,47 @@ public:
         Clear(root);
     }
 
-    T Search(T data) {
+    double Search(T data) {
+        auto start = std::chrono::high_resolution_clock::now();
+        
         node<T>* x = _search(data, root); // if data not fount return the closest element
         splay(x);
-        return x ? x->data : T();
+        
+        auto stop = std::chrono::high_resolution_clock::now();
+        std::chrono::duration<double> time_span = 
+            std::chrono::duration_cast<std::chrono::duration<double>>(stop - start);
+        return static_cast<double>(time_span.count()); 
+        //return x ? x->data : T();
     }
 
-    void Insert(T data) {
+    double Insert(T data) {
+        auto start = std::chrono::high_resolution_clock::now();
+        
         node<T>* s = _search(data, root);
         if (s == nullptr || s->data != data) // unique insert
             _insert(data, root);
         else
             splay(s); // just splay on top
+        
+        auto stop = std::chrono::high_resolution_clock::now();
+        std::chrono::duration<double> time_span = 
+            std::chrono::duration_cast<std::chrono::duration<double>>(stop - start);
+        return static_cast<double>(time_span.count()); 
     }
 
-    void Delete(T data) {
+    double Delete(T data) {
+        auto start = std::chrono::high_resolution_clock::now();
+
         node<T>* s = _search(data, root);
         if (s != nullptr && s->data == data) // data found
             _delete(s);
         else
             splay(s); // just splay on top
+            
+        auto stop = std::chrono::high_resolution_clock::now();
+        std::chrono::duration<double> time_span = 
+            std::chrono::duration_cast<std::chrono::duration<double>>(stop - start);
+        return static_cast<double>(time_span.count());        
     }
 
     void printDataInOrder() {

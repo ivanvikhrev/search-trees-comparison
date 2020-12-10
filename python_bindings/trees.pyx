@@ -8,7 +8,7 @@ cdef class SplayTreeInt:
     cdef SplayTree[int] st
 
     def insert(self, x):
-        self.st.Insert(x)
+        return self.st.Insert(x)
 
     def search(self, x):
         return self.st.Search(x)
@@ -23,7 +23,7 @@ cdef class SplayTreeString:
     cdef SplayTree[string] st
 
     def insert(self, x):
-        self.st.Insert(x)
+        return self.st.Insert(x)
 
     def search(self, x):
         return self.st.Search(x)
@@ -43,7 +43,7 @@ cdef class AVLTreeInt:
         return self.tree.rotations_num
 
     def insert(self, x):
-        self.tree.Insert(x)
+        return self.tree.Insert(x)
 
     def search(self, x):
         return self.tree.Search(x)
@@ -57,8 +57,12 @@ cdef class AVLTreeInt:
 cdef class AVLTreeString:
     cdef AVLTree[string] tree
 
+    @property
+    def rotations_num(self):
+        return self.tree.rotations_num
+
     def insert(self, x):
-        self.tree.Insert(x)
+        return self.tree.Insert(x)
 
     def search(self, x):
         return self.tree.Search(x)
@@ -73,7 +77,7 @@ cdef class TreapInt:
     cdef Treap[int] tree
 
     def insert(self, x):
-        self.tree.Insert(x)
+        return self.tree.Insert(x)
 
     def search(self, x):
         return self.tree.Search(x)
@@ -88,7 +92,7 @@ cdef class TreapString:
     cdef Treap[string] tree
 
     def insert(self, x):
-        self.tree.Insert(x)
+        return self.tree.Insert(x)
 
     def search(self, x):
         return self.tree.Search(x)
@@ -103,7 +107,7 @@ cdef class RBTreeInt:
     cdef RBTree[int] tree
 
     def insert(self, x):
-        self.tree.Insert(x)
+        return self.tree.Insert(x)
 
     def search(self, x):
         return self.tree.Search(x)
@@ -118,7 +122,7 @@ cdef class RBTreeString:
     cdef RBTree[string] tree
 
     def insert(self, x):
-        self.tree.Insert(x)
+        return self.tree.Insert(x)
 
     def search(self, x):
         return self.tree.Search(x)
@@ -133,7 +137,7 @@ cdef class SortedArrInt:
     cdef SortedArray[int] tree
 
     def insert(self, x):
-        self.tree.Insert(x)
+        return self.tree.Insert(x)
 
     def search(self, x):
         return self.tree.Search(x)
@@ -149,7 +153,7 @@ cdef class SortedArrString:
     cdef SortedArray[string] tree
 
     def insert(self, x):
-        self.tree.Insert(x)
+        return self.tree.Insert(x)
 
     def search(self, x):
         return self.tree.Search(x)

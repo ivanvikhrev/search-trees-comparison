@@ -930,7 +930,7 @@ struct __pyx_obj_5trees_AVLTreeString {
 };
 
 
-/* "trees.pyx":72
+/* "trees.pyx":76
  *         self.tree.printDataInOrder()
  * 
  * cdef class TreapInt:             # <<<<<<<<<<<<<<
@@ -943,7 +943,7 @@ struct __pyx_obj_5trees_TreapInt {
 };
 
 
-/* "trees.pyx":87
+/* "trees.pyx":91
  *         self.tree.printDataInOrder()
  * 
  * cdef class TreapString:             # <<<<<<<<<<<<<<
@@ -956,7 +956,7 @@ struct __pyx_obj_5trees_TreapString {
 };
 
 
-/* "trees.pyx":102
+/* "trees.pyx":106
  *         self.tree.printDataInOrder()
  * 
  * cdef class RBTreeInt:             # <<<<<<<<<<<<<<
@@ -969,7 +969,7 @@ struct __pyx_obj_5trees_RBTreeInt {
 };
 
 
-/* "trees.pyx":117
+/* "trees.pyx":121
  *         self.tree.printDataInOrder()
  * 
  * cdef class RBTreeString:             # <<<<<<<<<<<<<<
@@ -982,7 +982,7 @@ struct __pyx_obj_5trees_RBTreeString {
 };
 
 
-/* "trees.pyx":132
+/* "trees.pyx":136
  *         self.tree.printDataInOrder()
  * 
  * cdef class SortedArrInt:             # <<<<<<<<<<<<<<
@@ -995,7 +995,7 @@ struct __pyx_obj_5trees_SortedArrInt {
 };
 
 
-/* "trees.pyx":148
+/* "trees.pyx":152
  * 
  * 
  * cdef class SortedArrString:             # <<<<<<<<<<<<<<
@@ -1261,11 +1261,6 @@ static PyTypeObject *__pyx_ptype_5trees_RBTreeString = 0;
 static PyTypeObject *__pyx_ptype_5trees_SortedArrInt = 0;
 static PyTypeObject *__pyx_ptype_5trees_SortedArrString = 0;
 static std::string __pyx_convert_string_from_py_std__in_string(PyObject *); /*proto*/
-static CYTHON_INLINE PyObject *__pyx_convert_PyObject_string_to_py_std__in_string(std::string const &); /*proto*/
-static CYTHON_INLINE PyObject *__pyx_convert_PyUnicode_string_to_py_std__in_string(std::string const &); /*proto*/
-static CYTHON_INLINE PyObject *__pyx_convert_PyStr_string_to_py_std__in_string(std::string const &); /*proto*/
-static CYTHON_INLINE PyObject *__pyx_convert_PyBytes_string_to_py_std__in_string(std::string const &); /*proto*/
-static CYTHON_INLINE PyObject *__pyx_convert_PyByteArray_string_to_py_std__in_string(std::string const &); /*proto*/
 #define __Pyx_MODULE_NAME "trees"
 extern int __pyx_module_is_main_trees;
 int __pyx_module_is_main_trees = 0;
@@ -1337,6 +1332,7 @@ static PyObject *__pyx_pf_5trees_10AVLTreeInt_4delete(struct __pyx_obj_5trees_AV
 static PyObject *__pyx_pf_5trees_10AVLTreeInt_6printData(struct __pyx_obj_5trees_AVLTreeInt *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_5trees_10AVLTreeInt_8__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_5trees_AVLTreeInt *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_5trees_10AVLTreeInt_10__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_5trees_AVLTreeInt *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
+static PyObject *__pyx_pf_5trees_13AVLTreeString_13rotations_num___get__(struct __pyx_obj_5trees_AVLTreeString *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_5trees_13AVLTreeString_insert(struct __pyx_obj_5trees_AVLTreeString *__pyx_v_self, PyObject *__pyx_v_x); /* proto */
 static PyObject *__pyx_pf_5trees_13AVLTreeString_2search(struct __pyx_obj_5trees_AVLTreeString *__pyx_v_self, PyObject *__pyx_v_x); /* proto */
 static PyObject *__pyx_pf_5trees_13AVLTreeString_4delete(struct __pyx_obj_5trees_AVLTreeString *__pyx_v_self, PyObject *__pyx_v_x); /* proto */
@@ -1415,7 +1411,7 @@ static PyObject *__pyx_tuple__20;
  *     cdef SplayTree[int] st
  * 
  *     def insert(self, x):             # <<<<<<<<<<<<<<
- *         self.st.Insert(x)
+ *         return self.st.Insert(x)
  * 
  */
 
@@ -1436,6 +1432,7 @@ static PyObject *__pyx_pf_5trees_12SplayTreeInt_insert(struct __pyx_obj_5trees_S
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
+  PyObject *__pyx_t_2 = NULL;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -1444,25 +1441,29 @@ static PyObject *__pyx_pf_5trees_12SplayTreeInt_insert(struct __pyx_obj_5trees_S
   /* "trees.pyx":11
  * 
  *     def insert(self, x):
- *         self.st.Insert(x)             # <<<<<<<<<<<<<<
+ *         return self.st.Insert(x)             # <<<<<<<<<<<<<<
  * 
  *     def search(self, x):
  */
+  __Pyx_XDECREF(__pyx_r);
   __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_x); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 11, __pyx_L1_error)
-  __pyx_v_self->st.Insert(__pyx_t_1);
+  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_self->st.Insert(__pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 11, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_r = __pyx_t_2;
+  __pyx_t_2 = 0;
+  goto __pyx_L0;
 
   /* "trees.pyx":10
  *     cdef SplayTree[int] st
  * 
  *     def insert(self, x):             # <<<<<<<<<<<<<<
- *         self.st.Insert(x)
+ *         return self.st.Insert(x)
  * 
  */
 
   /* function exit code */
-  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
-  goto __pyx_L0;
   __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_2);
   __Pyx_AddTraceback("trees.SplayTreeInt.insert", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
@@ -1472,7 +1473,7 @@ static PyObject *__pyx_pf_5trees_12SplayTreeInt_insert(struct __pyx_obj_5trees_S
 }
 
 /* "trees.pyx":13
- *         self.st.Insert(x)
+ *         return self.st.Insert(x)
  * 
  *     def search(self, x):             # <<<<<<<<<<<<<<
  *         return self.st.Search(x)
@@ -1511,14 +1512,14 @@ static PyObject *__pyx_pf_5trees_12SplayTreeInt_2search(struct __pyx_obj_5trees_
  */
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_x); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 14, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_self->st.Search(__pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 14, __pyx_L1_error)
+  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_self->st.Search(__pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 14, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
   /* "trees.pyx":13
- *         self.st.Insert(x)
+ *         return self.st.Insert(x)
  * 
  *     def search(self, x):             # <<<<<<<<<<<<<<
  *         return self.st.Search(x)
@@ -1576,7 +1577,7 @@ static PyObject *__pyx_pf_5trees_12SplayTreeInt_4delete(struct __pyx_obj_5trees_
  */
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_x); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 17, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_void_to_None(__pyx_v_self->st.Delete(__pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 17, __pyx_L1_error)
+  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_self->st.Delete(__pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 17, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
@@ -1768,7 +1769,7 @@ static PyObject *__pyx_pf_5trees_12SplayTreeInt_10__setstate_cython__(CYTHON_UNU
  *     cdef SplayTree[string] st
  * 
  *     def insert(self, x):             # <<<<<<<<<<<<<<
- *         self.st.Insert(x)
+ *         return self.st.Insert(x)
  * 
  */
 
@@ -1789,6 +1790,7 @@ static PyObject *__pyx_pf_5trees_15SplayTreeString_insert(struct __pyx_obj_5tree
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   std::string __pyx_t_1;
+  PyObject *__pyx_t_2 = NULL;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -1797,25 +1799,29 @@ static PyObject *__pyx_pf_5trees_15SplayTreeString_insert(struct __pyx_obj_5tree
   /* "trees.pyx":26
  * 
  *     def insert(self, x):
- *         self.st.Insert(x)             # <<<<<<<<<<<<<<
+ *         return self.st.Insert(x)             # <<<<<<<<<<<<<<
  * 
  *     def search(self, x):
  */
+  __Pyx_XDECREF(__pyx_r);
   __pyx_t_1 = __pyx_convert_string_from_py_std__in_string(__pyx_v_x); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 26, __pyx_L1_error)
-  __pyx_v_self->st.Insert(__pyx_t_1);
+  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_self->st.Insert(__pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 26, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_r = __pyx_t_2;
+  __pyx_t_2 = 0;
+  goto __pyx_L0;
 
   /* "trees.pyx":25
  *     cdef SplayTree[string] st
  * 
  *     def insert(self, x):             # <<<<<<<<<<<<<<
- *         self.st.Insert(x)
+ *         return self.st.Insert(x)
  * 
  */
 
   /* function exit code */
-  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
-  goto __pyx_L0;
   __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_2);
   __Pyx_AddTraceback("trees.SplayTreeString.insert", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
@@ -1825,7 +1831,7 @@ static PyObject *__pyx_pf_5trees_15SplayTreeString_insert(struct __pyx_obj_5tree
 }
 
 /* "trees.pyx":28
- *         self.st.Insert(x)
+ *         return self.st.Insert(x)
  * 
  *     def search(self, x):             # <<<<<<<<<<<<<<
  *         return self.st.Search(x)
@@ -1864,14 +1870,14 @@ static PyObject *__pyx_pf_5trees_15SplayTreeString_2search(struct __pyx_obj_5tre
  */
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_1 = __pyx_convert_string_from_py_std__in_string(__pyx_v_x); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 29, __pyx_L1_error)
-  __pyx_t_2 = __pyx_convert_PyBytes_string_to_py_std__in_string(__pyx_v_self->st.Search(__pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 29, __pyx_L1_error)
+  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_self->st.Search(__pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 29, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
   /* "trees.pyx":28
- *         self.st.Insert(x)
+ *         return self.st.Insert(x)
  * 
  *     def search(self, x):             # <<<<<<<<<<<<<<
  *         return self.st.Search(x)
@@ -1929,7 +1935,7 @@ static PyObject *__pyx_pf_5trees_15SplayTreeString_4delete(struct __pyx_obj_5tre
  */
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_1 = __pyx_convert_string_from_py_std__in_string(__pyx_v_x); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 32, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_void_to_None(__pyx_v_self->st.Delete(__pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 32, __pyx_L1_error)
+  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_self->st.Delete(__pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 32, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
@@ -2184,7 +2190,7 @@ static PyObject *__pyx_pf_5trees_10AVLTreeInt_13rotations_num___get__(struct __p
  *         return self.tree.rotations_num
  * 
  *     def insert(self, x):             # <<<<<<<<<<<<<<
- *         self.tree.Insert(x)
+ *         return self.tree.Insert(x)
  * 
  */
 
@@ -2205,6 +2211,7 @@ static PyObject *__pyx_pf_5trees_10AVLTreeInt_insert(struct __pyx_obj_5trees_AVL
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
+  PyObject *__pyx_t_2 = NULL;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -2213,25 +2220,29 @@ static PyObject *__pyx_pf_5trees_10AVLTreeInt_insert(struct __pyx_obj_5trees_AVL
   /* "trees.pyx":46
  * 
  *     def insert(self, x):
- *         self.tree.Insert(x)             # <<<<<<<<<<<<<<
+ *         return self.tree.Insert(x)             # <<<<<<<<<<<<<<
  * 
  *     def search(self, x):
  */
+  __Pyx_XDECREF(__pyx_r);
   __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_x); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 46, __pyx_L1_error)
-  __pyx_v_self->tree.Insert(__pyx_t_1);
+  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_self->tree.Insert(__pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 46, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_r = __pyx_t_2;
+  __pyx_t_2 = 0;
+  goto __pyx_L0;
 
   /* "trees.pyx":45
  *         return self.tree.rotations_num
  * 
  *     def insert(self, x):             # <<<<<<<<<<<<<<
- *         self.tree.Insert(x)
+ *         return self.tree.Insert(x)
  * 
  */
 
   /* function exit code */
-  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
-  goto __pyx_L0;
   __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_2);
   __Pyx_AddTraceback("trees.AVLTreeInt.insert", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
@@ -2241,7 +2252,7 @@ static PyObject *__pyx_pf_5trees_10AVLTreeInt_insert(struct __pyx_obj_5trees_AVL
 }
 
 /* "trees.pyx":48
- *         self.tree.Insert(x)
+ *         return self.tree.Insert(x)
  * 
  *     def search(self, x):             # <<<<<<<<<<<<<<
  *         return self.tree.Search(x)
@@ -2280,14 +2291,14 @@ static PyObject *__pyx_pf_5trees_10AVLTreeInt_2search(struct __pyx_obj_5trees_AV
  */
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_x); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 49, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_self->tree.Search(__pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 49, __pyx_L1_error)
+  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_self->tree.Search(__pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 49, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
   /* "trees.pyx":48
- *         self.tree.Insert(x)
+ *         return self.tree.Insert(x)
  * 
  *     def search(self, x):             # <<<<<<<<<<<<<<
  *         return self.tree.Search(x)
@@ -2345,7 +2356,7 @@ static PyObject *__pyx_pf_5trees_10AVLTreeInt_4delete(struct __pyx_obj_5trees_AV
  */
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_x); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 52, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_void_to_None(__pyx_v_self->tree.Delete(__pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 52, __pyx_L1_error)
+  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_self->tree.Delete(__pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 52, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
@@ -2533,11 +2544,74 @@ static PyObject *__pyx_pf_5trees_10AVLTreeInt_10__setstate_cython__(CYTHON_UNUSE
   return __pyx_r;
 }
 
-/* "trees.pyx":60
- *     cdef AVLTree[string] tree
+/* "trees.pyx":61
+ * 
+ *     @property
+ *     def rotations_num(self):             # <<<<<<<<<<<<<<
+ *         return self.tree.rotations_num
+ * 
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_5trees_13AVLTreeString_13rotations_num_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_5trees_13AVLTreeString_13rotations_num_1__get__(PyObject *__pyx_v_self) {
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
+  __pyx_r = __pyx_pf_5trees_13AVLTreeString_13rotations_num___get__(((struct __pyx_obj_5trees_AVLTreeString *)__pyx_v_self));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_5trees_13AVLTreeString_13rotations_num___get__(struct __pyx_obj_5trees_AVLTreeString *__pyx_v_self) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("__get__", 0);
+
+  /* "trees.pyx":62
+ *     @property
+ *     def rotations_num(self):
+ *         return self.tree.rotations_num             # <<<<<<<<<<<<<<
+ * 
+ *     def insert(self, x):
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->tree.rotations_num); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 62, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* "trees.pyx":61
+ * 
+ *     @property
+ *     def rotations_num(self):             # <<<<<<<<<<<<<<
+ *         return self.tree.rotations_num
+ * 
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_AddTraceback("trees.AVLTreeString.rotations_num.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "trees.pyx":64
+ *         return self.tree.rotations_num
  * 
  *     def insert(self, x):             # <<<<<<<<<<<<<<
- *         self.tree.Insert(x)
+ *         return self.tree.Insert(x)
  * 
  */
 
@@ -2558,33 +2632,38 @@ static PyObject *__pyx_pf_5trees_13AVLTreeString_insert(struct __pyx_obj_5trees_
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   std::string __pyx_t_1;
+  PyObject *__pyx_t_2 = NULL;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("insert", 0);
 
-  /* "trees.pyx":61
+  /* "trees.pyx":65
  * 
  *     def insert(self, x):
- *         self.tree.Insert(x)             # <<<<<<<<<<<<<<
+ *         return self.tree.Insert(x)             # <<<<<<<<<<<<<<
  * 
  *     def search(self, x):
  */
-  __pyx_t_1 = __pyx_convert_string_from_py_std__in_string(__pyx_v_x); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 61, __pyx_L1_error)
-  __pyx_v_self->tree.Insert(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __pyx_convert_string_from_py_std__in_string(__pyx_v_x); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 65, __pyx_L1_error)
+  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_self->tree.Insert(__pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 65, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_r = __pyx_t_2;
+  __pyx_t_2 = 0;
+  goto __pyx_L0;
 
-  /* "trees.pyx":60
- *     cdef AVLTree[string] tree
+  /* "trees.pyx":64
+ *         return self.tree.rotations_num
  * 
  *     def insert(self, x):             # <<<<<<<<<<<<<<
- *         self.tree.Insert(x)
+ *         return self.tree.Insert(x)
  * 
  */
 
   /* function exit code */
-  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
-  goto __pyx_L0;
   __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_2);
   __Pyx_AddTraceback("trees.AVLTreeString.insert", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
@@ -2593,8 +2672,8 @@ static PyObject *__pyx_pf_5trees_13AVLTreeString_insert(struct __pyx_obj_5trees_
   return __pyx_r;
 }
 
-/* "trees.pyx":63
- *         self.tree.Insert(x)
+/* "trees.pyx":67
+ *         return self.tree.Insert(x)
  * 
  *     def search(self, x):             # <<<<<<<<<<<<<<
  *         return self.tree.Search(x)
@@ -2624,7 +2703,7 @@ static PyObject *__pyx_pf_5trees_13AVLTreeString_2search(struct __pyx_obj_5trees
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("search", 0);
 
-  /* "trees.pyx":64
+  /* "trees.pyx":68
  * 
  *     def search(self, x):
  *         return self.tree.Search(x)             # <<<<<<<<<<<<<<
@@ -2632,15 +2711,15 @@ static PyObject *__pyx_pf_5trees_13AVLTreeString_2search(struct __pyx_obj_5trees
  *     def delete(self, x):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_convert_string_from_py_std__in_string(__pyx_v_x); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 64, __pyx_L1_error)
-  __pyx_t_2 = __pyx_convert_PyBytes_string_to_py_std__in_string(__pyx_v_self->tree.Search(__pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 64, __pyx_L1_error)
+  __pyx_t_1 = __pyx_convert_string_from_py_std__in_string(__pyx_v_x); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 68, __pyx_L1_error)
+  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_self->tree.Search(__pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 68, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "trees.pyx":63
- *         self.tree.Insert(x)
+  /* "trees.pyx":67
+ *         return self.tree.Insert(x)
  * 
  *     def search(self, x):             # <<<<<<<<<<<<<<
  *         return self.tree.Search(x)
@@ -2658,7 +2737,7 @@ static PyObject *__pyx_pf_5trees_13AVLTreeString_2search(struct __pyx_obj_5trees
   return __pyx_r;
 }
 
-/* "trees.pyx":66
+/* "trees.pyx":70
  *         return self.tree.Search(x)
  * 
  *     def delete(self, x):             # <<<<<<<<<<<<<<
@@ -2689,7 +2768,7 @@ static PyObject *__pyx_pf_5trees_13AVLTreeString_4delete(struct __pyx_obj_5trees
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("delete", 0);
 
-  /* "trees.pyx":67
+  /* "trees.pyx":71
  * 
  *     def delete(self, x):
  *         return self.tree.Delete(x)             # <<<<<<<<<<<<<<
@@ -2697,14 +2776,14 @@ static PyObject *__pyx_pf_5trees_13AVLTreeString_4delete(struct __pyx_obj_5trees
  *     def printData(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_convert_string_from_py_std__in_string(__pyx_v_x); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 67, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_void_to_None(__pyx_v_self->tree.Delete(__pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 67, __pyx_L1_error)
+  __pyx_t_1 = __pyx_convert_string_from_py_std__in_string(__pyx_v_x); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 71, __pyx_L1_error)
+  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_self->tree.Delete(__pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 71, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "trees.pyx":66
+  /* "trees.pyx":70
  *         return self.tree.Search(x)
  * 
  *     def delete(self, x):             # <<<<<<<<<<<<<<
@@ -2723,7 +2802,7 @@ static PyObject *__pyx_pf_5trees_13AVLTreeString_4delete(struct __pyx_obj_5trees
   return __pyx_r;
 }
 
-/* "trees.pyx":69
+/* "trees.pyx":73
  *         return self.tree.Delete(x)
  * 
  *     def printData(self):             # <<<<<<<<<<<<<<
@@ -2749,7 +2828,7 @@ static PyObject *__pyx_pf_5trees_13AVLTreeString_6printData(struct __pyx_obj_5tr
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("printData", 0);
 
-  /* "trees.pyx":70
+  /* "trees.pyx":74
  * 
  *     def printData(self):
  *         self.tree.printDataInOrder()             # <<<<<<<<<<<<<<
@@ -2758,7 +2837,7 @@ static PyObject *__pyx_pf_5trees_13AVLTreeString_6printData(struct __pyx_obj_5tr
  */
   __pyx_v_self->tree.printDataInOrder();
 
-  /* "trees.pyx":69
+  /* "trees.pyx":73
  *         return self.tree.Delete(x)
  * 
  *     def printData(self):             # <<<<<<<<<<<<<<
@@ -2886,11 +2965,11 @@ static PyObject *__pyx_pf_5trees_13AVLTreeString_10__setstate_cython__(CYTHON_UN
   return __pyx_r;
 }
 
-/* "trees.pyx":75
+/* "trees.pyx":79
  *     cdef Treap[int] tree
  * 
  *     def insert(self, x):             # <<<<<<<<<<<<<<
- *         self.tree.Insert(x)
+ *         return self.tree.Insert(x)
  * 
  */
 
@@ -2911,33 +2990,38 @@ static PyObject *__pyx_pf_5trees_8TreapInt_insert(struct __pyx_obj_5trees_TreapI
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
+  PyObject *__pyx_t_2 = NULL;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("insert", 0);
 
-  /* "trees.pyx":76
+  /* "trees.pyx":80
  * 
  *     def insert(self, x):
- *         self.tree.Insert(x)             # <<<<<<<<<<<<<<
+ *         return self.tree.Insert(x)             # <<<<<<<<<<<<<<
  * 
  *     def search(self, x):
  */
-  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_x); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 76, __pyx_L1_error)
-  __pyx_v_self->tree.Insert(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_x); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 80, __pyx_L1_error)
+  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_self->tree.Insert(__pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 80, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_r = __pyx_t_2;
+  __pyx_t_2 = 0;
+  goto __pyx_L0;
 
-  /* "trees.pyx":75
+  /* "trees.pyx":79
  *     cdef Treap[int] tree
  * 
  *     def insert(self, x):             # <<<<<<<<<<<<<<
- *         self.tree.Insert(x)
+ *         return self.tree.Insert(x)
  * 
  */
 
   /* function exit code */
-  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
-  goto __pyx_L0;
   __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_2);
   __Pyx_AddTraceback("trees.TreapInt.insert", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
@@ -2946,8 +3030,8 @@ static PyObject *__pyx_pf_5trees_8TreapInt_insert(struct __pyx_obj_5trees_TreapI
   return __pyx_r;
 }
 
-/* "trees.pyx":78
- *         self.tree.Insert(x)
+/* "trees.pyx":82
+ *         return self.tree.Insert(x)
  * 
  *     def search(self, x):             # <<<<<<<<<<<<<<
  *         return self.tree.Search(x)
@@ -2977,7 +3061,7 @@ static PyObject *__pyx_pf_5trees_8TreapInt_2search(struct __pyx_obj_5trees_Treap
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("search", 0);
 
-  /* "trees.pyx":79
+  /* "trees.pyx":83
  * 
  *     def search(self, x):
  *         return self.tree.Search(x)             # <<<<<<<<<<<<<<
@@ -2985,15 +3069,15 @@ static PyObject *__pyx_pf_5trees_8TreapInt_2search(struct __pyx_obj_5trees_Treap
  *     def delete(self, x):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_x); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 79, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_self->tree.Search(__pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 79, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_x); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 83, __pyx_L1_error)
+  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_self->tree.Search(__pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 83, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "trees.pyx":78
- *         self.tree.Insert(x)
+  /* "trees.pyx":82
+ *         return self.tree.Insert(x)
  * 
  *     def search(self, x):             # <<<<<<<<<<<<<<
  *         return self.tree.Search(x)
@@ -3011,7 +3095,7 @@ static PyObject *__pyx_pf_5trees_8TreapInt_2search(struct __pyx_obj_5trees_Treap
   return __pyx_r;
 }
 
-/* "trees.pyx":81
+/* "trees.pyx":85
  *         return self.tree.Search(x)
  * 
  *     def delete(self, x):             # <<<<<<<<<<<<<<
@@ -3042,7 +3126,7 @@ static PyObject *__pyx_pf_5trees_8TreapInt_4delete(struct __pyx_obj_5trees_Treap
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("delete", 0);
 
-  /* "trees.pyx":82
+  /* "trees.pyx":86
  * 
  *     def delete(self, x):
  *         return self.tree.Delete(x)             # <<<<<<<<<<<<<<
@@ -3050,14 +3134,14 @@ static PyObject *__pyx_pf_5trees_8TreapInt_4delete(struct __pyx_obj_5trees_Treap
  *     def printData(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_x); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 82, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_void_to_None(__pyx_v_self->tree.Delete(__pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 82, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_x); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 86, __pyx_L1_error)
+  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_self->tree.Delete(__pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 86, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "trees.pyx":81
+  /* "trees.pyx":85
  *         return self.tree.Search(x)
  * 
  *     def delete(self, x):             # <<<<<<<<<<<<<<
@@ -3076,7 +3160,7 @@ static PyObject *__pyx_pf_5trees_8TreapInt_4delete(struct __pyx_obj_5trees_Treap
   return __pyx_r;
 }
 
-/* "trees.pyx":84
+/* "trees.pyx":88
  *         return self.tree.Delete(x)
  * 
  *     def printData(self):             # <<<<<<<<<<<<<<
@@ -3102,7 +3186,7 @@ static PyObject *__pyx_pf_5trees_8TreapInt_6printData(struct __pyx_obj_5trees_Tr
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("printData", 0);
 
-  /* "trees.pyx":85
+  /* "trees.pyx":89
  * 
  *     def printData(self):
  *         self.tree.printDataInOrder()             # <<<<<<<<<<<<<<
@@ -3111,7 +3195,7 @@ static PyObject *__pyx_pf_5trees_8TreapInt_6printData(struct __pyx_obj_5trees_Tr
  */
   __pyx_v_self->tree.printDataInOrder();
 
-  /* "trees.pyx":84
+  /* "trees.pyx":88
  *         return self.tree.Delete(x)
  * 
  *     def printData(self):             # <<<<<<<<<<<<<<
@@ -3239,11 +3323,11 @@ static PyObject *__pyx_pf_5trees_8TreapInt_10__setstate_cython__(CYTHON_UNUSED s
   return __pyx_r;
 }
 
-/* "trees.pyx":90
+/* "trees.pyx":94
  *     cdef Treap[string] tree
  * 
  *     def insert(self, x):             # <<<<<<<<<<<<<<
- *         self.tree.Insert(x)
+ *         return self.tree.Insert(x)
  * 
  */
 
@@ -3264,33 +3348,38 @@ static PyObject *__pyx_pf_5trees_11TreapString_insert(struct __pyx_obj_5trees_Tr
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   std::string __pyx_t_1;
+  PyObject *__pyx_t_2 = NULL;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("insert", 0);
 
-  /* "trees.pyx":91
+  /* "trees.pyx":95
  * 
  *     def insert(self, x):
- *         self.tree.Insert(x)             # <<<<<<<<<<<<<<
+ *         return self.tree.Insert(x)             # <<<<<<<<<<<<<<
  * 
  *     def search(self, x):
  */
-  __pyx_t_1 = __pyx_convert_string_from_py_std__in_string(__pyx_v_x); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 91, __pyx_L1_error)
-  __pyx_v_self->tree.Insert(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __pyx_convert_string_from_py_std__in_string(__pyx_v_x); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 95, __pyx_L1_error)
+  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_self->tree.Insert(__pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 95, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_r = __pyx_t_2;
+  __pyx_t_2 = 0;
+  goto __pyx_L0;
 
-  /* "trees.pyx":90
+  /* "trees.pyx":94
  *     cdef Treap[string] tree
  * 
  *     def insert(self, x):             # <<<<<<<<<<<<<<
- *         self.tree.Insert(x)
+ *         return self.tree.Insert(x)
  * 
  */
 
   /* function exit code */
-  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
-  goto __pyx_L0;
   __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_2);
   __Pyx_AddTraceback("trees.TreapString.insert", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
@@ -3299,8 +3388,8 @@ static PyObject *__pyx_pf_5trees_11TreapString_insert(struct __pyx_obj_5trees_Tr
   return __pyx_r;
 }
 
-/* "trees.pyx":93
- *         self.tree.Insert(x)
+/* "trees.pyx":97
+ *         return self.tree.Insert(x)
  * 
  *     def search(self, x):             # <<<<<<<<<<<<<<
  *         return self.tree.Search(x)
@@ -3330,7 +3419,7 @@ static PyObject *__pyx_pf_5trees_11TreapString_2search(struct __pyx_obj_5trees_T
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("search", 0);
 
-  /* "trees.pyx":94
+  /* "trees.pyx":98
  * 
  *     def search(self, x):
  *         return self.tree.Search(x)             # <<<<<<<<<<<<<<
@@ -3338,15 +3427,15 @@ static PyObject *__pyx_pf_5trees_11TreapString_2search(struct __pyx_obj_5trees_T
  *     def delete(self, x):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_convert_string_from_py_std__in_string(__pyx_v_x); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 94, __pyx_L1_error)
-  __pyx_t_2 = __pyx_convert_PyBytes_string_to_py_std__in_string(__pyx_v_self->tree.Search(__pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 94, __pyx_L1_error)
+  __pyx_t_1 = __pyx_convert_string_from_py_std__in_string(__pyx_v_x); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 98, __pyx_L1_error)
+  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_self->tree.Search(__pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 98, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "trees.pyx":93
- *         self.tree.Insert(x)
+  /* "trees.pyx":97
+ *         return self.tree.Insert(x)
  * 
  *     def search(self, x):             # <<<<<<<<<<<<<<
  *         return self.tree.Search(x)
@@ -3364,7 +3453,7 @@ static PyObject *__pyx_pf_5trees_11TreapString_2search(struct __pyx_obj_5trees_T
   return __pyx_r;
 }
 
-/* "trees.pyx":96
+/* "trees.pyx":100
  *         return self.tree.Search(x)
  * 
  *     def delete(self, x):             # <<<<<<<<<<<<<<
@@ -3395,7 +3484,7 @@ static PyObject *__pyx_pf_5trees_11TreapString_4delete(struct __pyx_obj_5trees_T
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("delete", 0);
 
-  /* "trees.pyx":97
+  /* "trees.pyx":101
  * 
  *     def delete(self, x):
  *         return self.tree.Delete(x)             # <<<<<<<<<<<<<<
@@ -3403,14 +3492,14 @@ static PyObject *__pyx_pf_5trees_11TreapString_4delete(struct __pyx_obj_5trees_T
  *     def printData(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_convert_string_from_py_std__in_string(__pyx_v_x); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 97, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_void_to_None(__pyx_v_self->tree.Delete(__pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 97, __pyx_L1_error)
+  __pyx_t_1 = __pyx_convert_string_from_py_std__in_string(__pyx_v_x); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 101, __pyx_L1_error)
+  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_self->tree.Delete(__pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 101, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "trees.pyx":96
+  /* "trees.pyx":100
  *         return self.tree.Search(x)
  * 
  *     def delete(self, x):             # <<<<<<<<<<<<<<
@@ -3429,7 +3518,7 @@ static PyObject *__pyx_pf_5trees_11TreapString_4delete(struct __pyx_obj_5trees_T
   return __pyx_r;
 }
 
-/* "trees.pyx":99
+/* "trees.pyx":103
  *         return self.tree.Delete(x)
  * 
  *     def printData(self):             # <<<<<<<<<<<<<<
@@ -3455,7 +3544,7 @@ static PyObject *__pyx_pf_5trees_11TreapString_6printData(struct __pyx_obj_5tree
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("printData", 0);
 
-  /* "trees.pyx":100
+  /* "trees.pyx":104
  * 
  *     def printData(self):
  *         self.tree.printDataInOrder()             # <<<<<<<<<<<<<<
@@ -3464,7 +3553,7 @@ static PyObject *__pyx_pf_5trees_11TreapString_6printData(struct __pyx_obj_5tree
  */
   __pyx_v_self->tree.printDataInOrder();
 
-  /* "trees.pyx":99
+  /* "trees.pyx":103
  *         return self.tree.Delete(x)
  * 
  *     def printData(self):             # <<<<<<<<<<<<<<
@@ -3592,11 +3681,11 @@ static PyObject *__pyx_pf_5trees_11TreapString_10__setstate_cython__(CYTHON_UNUS
   return __pyx_r;
 }
 
-/* "trees.pyx":105
+/* "trees.pyx":109
  *     cdef RBTree[int] tree
  * 
  *     def insert(self, x):             # <<<<<<<<<<<<<<
- *         self.tree.Insert(x)
+ *         return self.tree.Insert(x)
  * 
  */
 
@@ -3617,33 +3706,38 @@ static PyObject *__pyx_pf_5trees_9RBTreeInt_insert(struct __pyx_obj_5trees_RBTre
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
+  PyObject *__pyx_t_2 = NULL;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("insert", 0);
 
-  /* "trees.pyx":106
+  /* "trees.pyx":110
  * 
  *     def insert(self, x):
- *         self.tree.Insert(x)             # <<<<<<<<<<<<<<
+ *         return self.tree.Insert(x)             # <<<<<<<<<<<<<<
  * 
  *     def search(self, x):
  */
-  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_x); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 106, __pyx_L1_error)
-  __pyx_v_self->tree.Insert(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_x); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 110, __pyx_L1_error)
+  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_self->tree.Insert(__pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 110, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_r = __pyx_t_2;
+  __pyx_t_2 = 0;
+  goto __pyx_L0;
 
-  /* "trees.pyx":105
+  /* "trees.pyx":109
  *     cdef RBTree[int] tree
  * 
  *     def insert(self, x):             # <<<<<<<<<<<<<<
- *         self.tree.Insert(x)
+ *         return self.tree.Insert(x)
  * 
  */
 
   /* function exit code */
-  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
-  goto __pyx_L0;
   __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_2);
   __Pyx_AddTraceback("trees.RBTreeInt.insert", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
@@ -3652,8 +3746,8 @@ static PyObject *__pyx_pf_5trees_9RBTreeInt_insert(struct __pyx_obj_5trees_RBTre
   return __pyx_r;
 }
 
-/* "trees.pyx":108
- *         self.tree.Insert(x)
+/* "trees.pyx":112
+ *         return self.tree.Insert(x)
  * 
  *     def search(self, x):             # <<<<<<<<<<<<<<
  *         return self.tree.Search(x)
@@ -3683,7 +3777,7 @@ static PyObject *__pyx_pf_5trees_9RBTreeInt_2search(struct __pyx_obj_5trees_RBTr
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("search", 0);
 
-  /* "trees.pyx":109
+  /* "trees.pyx":113
  * 
  *     def search(self, x):
  *         return self.tree.Search(x)             # <<<<<<<<<<<<<<
@@ -3691,15 +3785,15 @@ static PyObject *__pyx_pf_5trees_9RBTreeInt_2search(struct __pyx_obj_5trees_RBTr
  *     def delete(self, x):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_x); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 109, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_self->tree.Search(__pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 109, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_x); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 113, __pyx_L1_error)
+  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_self->tree.Search(__pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 113, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "trees.pyx":108
- *         self.tree.Insert(x)
+  /* "trees.pyx":112
+ *         return self.tree.Insert(x)
  * 
  *     def search(self, x):             # <<<<<<<<<<<<<<
  *         return self.tree.Search(x)
@@ -3717,7 +3811,7 @@ static PyObject *__pyx_pf_5trees_9RBTreeInt_2search(struct __pyx_obj_5trees_RBTr
   return __pyx_r;
 }
 
-/* "trees.pyx":111
+/* "trees.pyx":115
  *         return self.tree.Search(x)
  * 
  *     def delete(self, x):             # <<<<<<<<<<<<<<
@@ -3748,7 +3842,7 @@ static PyObject *__pyx_pf_5trees_9RBTreeInt_4delete(struct __pyx_obj_5trees_RBTr
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("delete", 0);
 
-  /* "trees.pyx":112
+  /* "trees.pyx":116
  * 
  *     def delete(self, x):
  *         return self.tree.Delete(x)             # <<<<<<<<<<<<<<
@@ -3756,14 +3850,14 @@ static PyObject *__pyx_pf_5trees_9RBTreeInt_4delete(struct __pyx_obj_5trees_RBTr
  *     def printData(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_x); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 112, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_void_to_None(__pyx_v_self->tree.Delete(__pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 112, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_x); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 116, __pyx_L1_error)
+  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_self->tree.Delete(__pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 116, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "trees.pyx":111
+  /* "trees.pyx":115
  *         return self.tree.Search(x)
  * 
  *     def delete(self, x):             # <<<<<<<<<<<<<<
@@ -3782,7 +3876,7 @@ static PyObject *__pyx_pf_5trees_9RBTreeInt_4delete(struct __pyx_obj_5trees_RBTr
   return __pyx_r;
 }
 
-/* "trees.pyx":114
+/* "trees.pyx":118
  *         return self.tree.Delete(x)
  * 
  *     def printData(self):             # <<<<<<<<<<<<<<
@@ -3808,7 +3902,7 @@ static PyObject *__pyx_pf_5trees_9RBTreeInt_6printData(struct __pyx_obj_5trees_R
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("printData", 0);
 
-  /* "trees.pyx":115
+  /* "trees.pyx":119
  * 
  *     def printData(self):
  *         self.tree.printDataInOrder()             # <<<<<<<<<<<<<<
@@ -3817,7 +3911,7 @@ static PyObject *__pyx_pf_5trees_9RBTreeInt_6printData(struct __pyx_obj_5trees_R
  */
   __pyx_v_self->tree.printDataInOrder();
 
-  /* "trees.pyx":114
+  /* "trees.pyx":118
  *         return self.tree.Delete(x)
  * 
  *     def printData(self):             # <<<<<<<<<<<<<<
@@ -3945,11 +4039,11 @@ static PyObject *__pyx_pf_5trees_9RBTreeInt_10__setstate_cython__(CYTHON_UNUSED 
   return __pyx_r;
 }
 
-/* "trees.pyx":120
+/* "trees.pyx":124
  *     cdef RBTree[string] tree
  * 
  *     def insert(self, x):             # <<<<<<<<<<<<<<
- *         self.tree.Insert(x)
+ *         return self.tree.Insert(x)
  * 
  */
 
@@ -3970,33 +4064,38 @@ static PyObject *__pyx_pf_5trees_12RBTreeString_insert(struct __pyx_obj_5trees_R
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   std::string __pyx_t_1;
+  PyObject *__pyx_t_2 = NULL;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("insert", 0);
 
-  /* "trees.pyx":121
+  /* "trees.pyx":125
  * 
  *     def insert(self, x):
- *         self.tree.Insert(x)             # <<<<<<<<<<<<<<
+ *         return self.tree.Insert(x)             # <<<<<<<<<<<<<<
  * 
  *     def search(self, x):
  */
-  __pyx_t_1 = __pyx_convert_string_from_py_std__in_string(__pyx_v_x); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 121, __pyx_L1_error)
-  __pyx_v_self->tree.Insert(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __pyx_convert_string_from_py_std__in_string(__pyx_v_x); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 125, __pyx_L1_error)
+  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_self->tree.Insert(__pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 125, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_r = __pyx_t_2;
+  __pyx_t_2 = 0;
+  goto __pyx_L0;
 
-  /* "trees.pyx":120
+  /* "trees.pyx":124
  *     cdef RBTree[string] tree
  * 
  *     def insert(self, x):             # <<<<<<<<<<<<<<
- *         self.tree.Insert(x)
+ *         return self.tree.Insert(x)
  * 
  */
 
   /* function exit code */
-  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
-  goto __pyx_L0;
   __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_2);
   __Pyx_AddTraceback("trees.RBTreeString.insert", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
@@ -4005,8 +4104,8 @@ static PyObject *__pyx_pf_5trees_12RBTreeString_insert(struct __pyx_obj_5trees_R
   return __pyx_r;
 }
 
-/* "trees.pyx":123
- *         self.tree.Insert(x)
+/* "trees.pyx":127
+ *         return self.tree.Insert(x)
  * 
  *     def search(self, x):             # <<<<<<<<<<<<<<
  *         return self.tree.Search(x)
@@ -4036,7 +4135,7 @@ static PyObject *__pyx_pf_5trees_12RBTreeString_2search(struct __pyx_obj_5trees_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("search", 0);
 
-  /* "trees.pyx":124
+  /* "trees.pyx":128
  * 
  *     def search(self, x):
  *         return self.tree.Search(x)             # <<<<<<<<<<<<<<
@@ -4044,15 +4143,15 @@ static PyObject *__pyx_pf_5trees_12RBTreeString_2search(struct __pyx_obj_5trees_
  *     def delete(self, x):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_convert_string_from_py_std__in_string(__pyx_v_x); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 124, __pyx_L1_error)
-  __pyx_t_2 = __pyx_convert_PyBytes_string_to_py_std__in_string(__pyx_v_self->tree.Search(__pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 124, __pyx_L1_error)
+  __pyx_t_1 = __pyx_convert_string_from_py_std__in_string(__pyx_v_x); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 128, __pyx_L1_error)
+  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_self->tree.Search(__pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 128, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "trees.pyx":123
- *         self.tree.Insert(x)
+  /* "trees.pyx":127
+ *         return self.tree.Insert(x)
  * 
  *     def search(self, x):             # <<<<<<<<<<<<<<
  *         return self.tree.Search(x)
@@ -4070,7 +4169,7 @@ static PyObject *__pyx_pf_5trees_12RBTreeString_2search(struct __pyx_obj_5trees_
   return __pyx_r;
 }
 
-/* "trees.pyx":126
+/* "trees.pyx":130
  *         return self.tree.Search(x)
  * 
  *     def delete(self, x):             # <<<<<<<<<<<<<<
@@ -4101,7 +4200,7 @@ static PyObject *__pyx_pf_5trees_12RBTreeString_4delete(struct __pyx_obj_5trees_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("delete", 0);
 
-  /* "trees.pyx":127
+  /* "trees.pyx":131
  * 
  *     def delete(self, x):
  *         return self.tree.Delete(x)             # <<<<<<<<<<<<<<
@@ -4109,14 +4208,14 @@ static PyObject *__pyx_pf_5trees_12RBTreeString_4delete(struct __pyx_obj_5trees_
  *     def printData(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_convert_string_from_py_std__in_string(__pyx_v_x); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 127, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_void_to_None(__pyx_v_self->tree.Delete(__pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 127, __pyx_L1_error)
+  __pyx_t_1 = __pyx_convert_string_from_py_std__in_string(__pyx_v_x); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 131, __pyx_L1_error)
+  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_self->tree.Delete(__pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 131, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "trees.pyx":126
+  /* "trees.pyx":130
  *         return self.tree.Search(x)
  * 
  *     def delete(self, x):             # <<<<<<<<<<<<<<
@@ -4135,7 +4234,7 @@ static PyObject *__pyx_pf_5trees_12RBTreeString_4delete(struct __pyx_obj_5trees_
   return __pyx_r;
 }
 
-/* "trees.pyx":129
+/* "trees.pyx":133
  *         return self.tree.Delete(x)
  * 
  *     def printData(self):             # <<<<<<<<<<<<<<
@@ -4161,7 +4260,7 @@ static PyObject *__pyx_pf_5trees_12RBTreeString_6printData(struct __pyx_obj_5tre
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("printData", 0);
 
-  /* "trees.pyx":130
+  /* "trees.pyx":134
  * 
  *     def printData(self):
  *         self.tree.printDataInOrder()             # <<<<<<<<<<<<<<
@@ -4170,7 +4269,7 @@ static PyObject *__pyx_pf_5trees_12RBTreeString_6printData(struct __pyx_obj_5tre
  */
   __pyx_v_self->tree.printDataInOrder();
 
-  /* "trees.pyx":129
+  /* "trees.pyx":133
  *         return self.tree.Delete(x)
  * 
  *     def printData(self):             # <<<<<<<<<<<<<<
@@ -4298,11 +4397,11 @@ static PyObject *__pyx_pf_5trees_12RBTreeString_10__setstate_cython__(CYTHON_UNU
   return __pyx_r;
 }
 
-/* "trees.pyx":135
+/* "trees.pyx":139
  *     cdef SortedArray[int] tree
  * 
  *     def insert(self, x):             # <<<<<<<<<<<<<<
- *         self.tree.Insert(x)
+ *         return self.tree.Insert(x)
  * 
  */
 
@@ -4323,33 +4422,38 @@ static PyObject *__pyx_pf_5trees_12SortedArrInt_insert(struct __pyx_obj_5trees_S
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
+  PyObject *__pyx_t_2 = NULL;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("insert", 0);
 
-  /* "trees.pyx":136
+  /* "trees.pyx":140
  * 
  *     def insert(self, x):
- *         self.tree.Insert(x)             # <<<<<<<<<<<<<<
+ *         return self.tree.Insert(x)             # <<<<<<<<<<<<<<
  * 
  *     def search(self, x):
  */
-  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_x); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 136, __pyx_L1_error)
-  __pyx_v_self->tree.Insert(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_x); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 140, __pyx_L1_error)
+  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_self->tree.Insert(__pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 140, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_r = __pyx_t_2;
+  __pyx_t_2 = 0;
+  goto __pyx_L0;
 
-  /* "trees.pyx":135
+  /* "trees.pyx":139
  *     cdef SortedArray[int] tree
  * 
  *     def insert(self, x):             # <<<<<<<<<<<<<<
- *         self.tree.Insert(x)
+ *         return self.tree.Insert(x)
  * 
  */
 
   /* function exit code */
-  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
-  goto __pyx_L0;
   __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_2);
   __Pyx_AddTraceback("trees.SortedArrInt.insert", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
@@ -4358,8 +4462,8 @@ static PyObject *__pyx_pf_5trees_12SortedArrInt_insert(struct __pyx_obj_5trees_S
   return __pyx_r;
 }
 
-/* "trees.pyx":138
- *         self.tree.Insert(x)
+/* "trees.pyx":142
+ *         return self.tree.Insert(x)
  * 
  *     def search(self, x):             # <<<<<<<<<<<<<<
  *         return self.tree.Search(x)
@@ -4389,7 +4493,7 @@ static PyObject *__pyx_pf_5trees_12SortedArrInt_2search(struct __pyx_obj_5trees_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("search", 0);
 
-  /* "trees.pyx":139
+  /* "trees.pyx":143
  * 
  *     def search(self, x):
  *         return self.tree.Search(x)             # <<<<<<<<<<<<<<
@@ -4397,15 +4501,15 @@ static PyObject *__pyx_pf_5trees_12SortedArrInt_2search(struct __pyx_obj_5trees_
  *     def delete(self, x):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_x); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 139, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_self->tree.Search(__pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 139, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_x); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 143, __pyx_L1_error)
+  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_self->tree.Search(__pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 143, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "trees.pyx":138
- *         self.tree.Insert(x)
+  /* "trees.pyx":142
+ *         return self.tree.Insert(x)
  * 
  *     def search(self, x):             # <<<<<<<<<<<<<<
  *         return self.tree.Search(x)
@@ -4423,7 +4527,7 @@ static PyObject *__pyx_pf_5trees_12SortedArrInt_2search(struct __pyx_obj_5trees_
   return __pyx_r;
 }
 
-/* "trees.pyx":141
+/* "trees.pyx":145
  *         return self.tree.Search(x)
  * 
  *     def delete(self, x):             # <<<<<<<<<<<<<<
@@ -4454,7 +4558,7 @@ static PyObject *__pyx_pf_5trees_12SortedArrInt_4delete(struct __pyx_obj_5trees_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("delete", 0);
 
-  /* "trees.pyx":142
+  /* "trees.pyx":146
  * 
  *     def delete(self, x):
  *         return self.tree.Delete(x)             # <<<<<<<<<<<<<<
@@ -4462,14 +4566,14 @@ static PyObject *__pyx_pf_5trees_12SortedArrInt_4delete(struct __pyx_obj_5trees_
  *     def printData(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_x); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 142, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_void_to_None(__pyx_v_self->tree.Delete(__pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 142, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_x); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 146, __pyx_L1_error)
+  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_self->tree.Delete(__pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 146, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "trees.pyx":141
+  /* "trees.pyx":145
  *         return self.tree.Search(x)
  * 
  *     def delete(self, x):             # <<<<<<<<<<<<<<
@@ -4488,7 +4592,7 @@ static PyObject *__pyx_pf_5trees_12SortedArrInt_4delete(struct __pyx_obj_5trees_
   return __pyx_r;
 }
 
-/* "trees.pyx":144
+/* "trees.pyx":148
  *         return self.tree.Delete(x)
  * 
  *     def printData(self):             # <<<<<<<<<<<<<<
@@ -4514,7 +4618,7 @@ static PyObject *__pyx_pf_5trees_12SortedArrInt_6printData(struct __pyx_obj_5tre
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("printData", 0);
 
-  /* "trees.pyx":145
+  /* "trees.pyx":149
  * 
  *     def printData(self):
  *         self.tree.printDataInOrder()             # <<<<<<<<<<<<<<
@@ -4523,7 +4627,7 @@ static PyObject *__pyx_pf_5trees_12SortedArrInt_6printData(struct __pyx_obj_5tre
  */
   __pyx_v_self->tree.printDataInOrder();
 
-  /* "trees.pyx":144
+  /* "trees.pyx":148
  *         return self.tree.Delete(x)
  * 
  *     def printData(self):             # <<<<<<<<<<<<<<
@@ -4651,11 +4755,11 @@ static PyObject *__pyx_pf_5trees_12SortedArrInt_10__setstate_cython__(CYTHON_UNU
   return __pyx_r;
 }
 
-/* "trees.pyx":151
+/* "trees.pyx":155
  *     cdef SortedArray[string] tree
  * 
  *     def insert(self, x):             # <<<<<<<<<<<<<<
- *         self.tree.Insert(x)
+ *         return self.tree.Insert(x)
  * 
  */
 
@@ -4676,33 +4780,38 @@ static PyObject *__pyx_pf_5trees_15SortedArrString_insert(struct __pyx_obj_5tree
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   std::string __pyx_t_1;
+  PyObject *__pyx_t_2 = NULL;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("insert", 0);
 
-  /* "trees.pyx":152
+  /* "trees.pyx":156
  * 
  *     def insert(self, x):
- *         self.tree.Insert(x)             # <<<<<<<<<<<<<<
+ *         return self.tree.Insert(x)             # <<<<<<<<<<<<<<
  * 
  *     def search(self, x):
  */
-  __pyx_t_1 = __pyx_convert_string_from_py_std__in_string(__pyx_v_x); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 152, __pyx_L1_error)
-  __pyx_v_self->tree.Insert(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __pyx_convert_string_from_py_std__in_string(__pyx_v_x); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 156, __pyx_L1_error)
+  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_self->tree.Insert(__pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 156, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_r = __pyx_t_2;
+  __pyx_t_2 = 0;
+  goto __pyx_L0;
 
-  /* "trees.pyx":151
+  /* "trees.pyx":155
  *     cdef SortedArray[string] tree
  * 
  *     def insert(self, x):             # <<<<<<<<<<<<<<
- *         self.tree.Insert(x)
+ *         return self.tree.Insert(x)
  * 
  */
 
   /* function exit code */
-  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
-  goto __pyx_L0;
   __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_2);
   __Pyx_AddTraceback("trees.SortedArrString.insert", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
@@ -4711,8 +4820,8 @@ static PyObject *__pyx_pf_5trees_15SortedArrString_insert(struct __pyx_obj_5tree
   return __pyx_r;
 }
 
-/* "trees.pyx":154
- *         self.tree.Insert(x)
+/* "trees.pyx":158
+ *         return self.tree.Insert(x)
  * 
  *     def search(self, x):             # <<<<<<<<<<<<<<
  *         return self.tree.Search(x)
@@ -4742,7 +4851,7 @@ static PyObject *__pyx_pf_5trees_15SortedArrString_2search(struct __pyx_obj_5tre
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("search", 0);
 
-  /* "trees.pyx":155
+  /* "trees.pyx":159
  * 
  *     def search(self, x):
  *         return self.tree.Search(x)             # <<<<<<<<<<<<<<
@@ -4750,15 +4859,15 @@ static PyObject *__pyx_pf_5trees_15SortedArrString_2search(struct __pyx_obj_5tre
  *     def delete(self, x):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_convert_string_from_py_std__in_string(__pyx_v_x); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 155, __pyx_L1_error)
-  __pyx_t_2 = __pyx_convert_PyBytes_string_to_py_std__in_string(__pyx_v_self->tree.Search(__pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 155, __pyx_L1_error)
+  __pyx_t_1 = __pyx_convert_string_from_py_std__in_string(__pyx_v_x); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 159, __pyx_L1_error)
+  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_self->tree.Search(__pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 159, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "trees.pyx":154
- *         self.tree.Insert(x)
+  /* "trees.pyx":158
+ *         return self.tree.Insert(x)
  * 
  *     def search(self, x):             # <<<<<<<<<<<<<<
  *         return self.tree.Search(x)
@@ -4776,7 +4885,7 @@ static PyObject *__pyx_pf_5trees_15SortedArrString_2search(struct __pyx_obj_5tre
   return __pyx_r;
 }
 
-/* "trees.pyx":157
+/* "trees.pyx":161
  *         return self.tree.Search(x)
  * 
  *     def delete(self, x):             # <<<<<<<<<<<<<<
@@ -4807,7 +4916,7 @@ static PyObject *__pyx_pf_5trees_15SortedArrString_4delete(struct __pyx_obj_5tre
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("delete", 0);
 
-  /* "trees.pyx":158
+  /* "trees.pyx":162
  * 
  *     def delete(self, x):
  *         return self.tree.Delete(x)             # <<<<<<<<<<<<<<
@@ -4815,14 +4924,14 @@ static PyObject *__pyx_pf_5trees_15SortedArrString_4delete(struct __pyx_obj_5tre
  *     def printData(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_convert_string_from_py_std__in_string(__pyx_v_x); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 158, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_void_to_None(__pyx_v_self->tree.Delete(__pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 158, __pyx_L1_error)
+  __pyx_t_1 = __pyx_convert_string_from_py_std__in_string(__pyx_v_x); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 162, __pyx_L1_error)
+  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_self->tree.Delete(__pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 162, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "trees.pyx":157
+  /* "trees.pyx":161
  *         return self.tree.Search(x)
  * 
  *     def delete(self, x):             # <<<<<<<<<<<<<<
@@ -4841,7 +4950,7 @@ static PyObject *__pyx_pf_5trees_15SortedArrString_4delete(struct __pyx_obj_5tre
   return __pyx_r;
 }
 
-/* "trees.pyx":160
+/* "trees.pyx":164
  *         return self.tree.Delete(x)
  * 
  *     def printData(self):             # <<<<<<<<<<<<<<
@@ -4866,14 +4975,14 @@ static PyObject *__pyx_pf_5trees_15SortedArrString_6printData(struct __pyx_obj_5
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("printData", 0);
 
-  /* "trees.pyx":161
+  /* "trees.pyx":165
  * 
  *     def printData(self):
  *         self.tree.printDataInOrder()             # <<<<<<<<<<<<<<
  */
   __pyx_v_self->tree.printDataInOrder();
 
-  /* "trees.pyx":160
+  /* "trees.pyx":164
  *         return self.tree.Delete(x)
  * 
  *     def printData(self):             # <<<<<<<<<<<<<<
@@ -5061,255 +5170,6 @@ static std::string __pyx_convert_string_from_py_std__in_string(PyObject *__pyx_v
   __Pyx_AddTraceback("string.from_py.__pyx_convert_string_from_py_std__in_string", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_pretend_to_initialize(&__pyx_r);
   __pyx_L0:;
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* "string.to_py":31
- * 
- * @cname("__pyx_convert_PyObject_string_to_py_std__in_string")
- * cdef inline object __pyx_convert_PyObject_string_to_py_std__in_string(const string& s):             # <<<<<<<<<<<<<<
- *     return __Pyx_PyObject_FromStringAndSize(s.data(), s.size())
- * cdef extern from *:
- */
-
-static CYTHON_INLINE PyObject *__pyx_convert_PyObject_string_to_py_std__in_string(std::string const &__pyx_v_s) {
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  PyObject *__pyx_t_1 = NULL;
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("__pyx_convert_PyObject_string_to_py_std__in_string", 0);
-
-  /* "string.to_py":32
- * @cname("__pyx_convert_PyObject_string_to_py_std__in_string")
- * cdef inline object __pyx_convert_PyObject_string_to_py_std__in_string(const string& s):
- *     return __Pyx_PyObject_FromStringAndSize(s.data(), s.size())             # <<<<<<<<<<<<<<
- * cdef extern from *:
- *     cdef object __Pyx_PyUnicode_FromStringAndSize(const char*, size_t)
- */
-  __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyObject_FromStringAndSize(__pyx_v_s.data(), __pyx_v_s.size()); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 32, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_r = __pyx_t_1;
-  __pyx_t_1 = 0;
-  goto __pyx_L0;
-
-  /* "string.to_py":31
- * 
- * @cname("__pyx_convert_PyObject_string_to_py_std__in_string")
- * cdef inline object __pyx_convert_PyObject_string_to_py_std__in_string(const string& s):             # <<<<<<<<<<<<<<
- *     return __Pyx_PyObject_FromStringAndSize(s.data(), s.size())
- * cdef extern from *:
- */
-
-  /* function exit code */
-  __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("string.to_py.__pyx_convert_PyObject_string_to_py_std__in_string", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = 0;
-  __pyx_L0:;
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* "string.to_py":37
- * 
- * @cname("__pyx_convert_PyUnicode_string_to_py_std__in_string")
- * cdef inline object __pyx_convert_PyUnicode_string_to_py_std__in_string(const string& s):             # <<<<<<<<<<<<<<
- *     return __Pyx_PyUnicode_FromStringAndSize(s.data(), s.size())
- * cdef extern from *:
- */
-
-static CYTHON_INLINE PyObject *__pyx_convert_PyUnicode_string_to_py_std__in_string(std::string const &__pyx_v_s) {
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  PyObject *__pyx_t_1 = NULL;
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("__pyx_convert_PyUnicode_string_to_py_std__in_string", 0);
-
-  /* "string.to_py":38
- * @cname("__pyx_convert_PyUnicode_string_to_py_std__in_string")
- * cdef inline object __pyx_convert_PyUnicode_string_to_py_std__in_string(const string& s):
- *     return __Pyx_PyUnicode_FromStringAndSize(s.data(), s.size())             # <<<<<<<<<<<<<<
- * cdef extern from *:
- *     cdef object __Pyx_PyStr_FromStringAndSize(const char*, size_t)
- */
-  __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyUnicode_FromStringAndSize(__pyx_v_s.data(), __pyx_v_s.size()); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 38, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_r = __pyx_t_1;
-  __pyx_t_1 = 0;
-  goto __pyx_L0;
-
-  /* "string.to_py":37
- * 
- * @cname("__pyx_convert_PyUnicode_string_to_py_std__in_string")
- * cdef inline object __pyx_convert_PyUnicode_string_to_py_std__in_string(const string& s):             # <<<<<<<<<<<<<<
- *     return __Pyx_PyUnicode_FromStringAndSize(s.data(), s.size())
- * cdef extern from *:
- */
-
-  /* function exit code */
-  __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("string.to_py.__pyx_convert_PyUnicode_string_to_py_std__in_string", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = 0;
-  __pyx_L0:;
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* "string.to_py":43
- * 
- * @cname("__pyx_convert_PyStr_string_to_py_std__in_string")
- * cdef inline object __pyx_convert_PyStr_string_to_py_std__in_string(const string& s):             # <<<<<<<<<<<<<<
- *     return __Pyx_PyStr_FromStringAndSize(s.data(), s.size())
- * cdef extern from *:
- */
-
-static CYTHON_INLINE PyObject *__pyx_convert_PyStr_string_to_py_std__in_string(std::string const &__pyx_v_s) {
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  PyObject *__pyx_t_1 = NULL;
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("__pyx_convert_PyStr_string_to_py_std__in_string", 0);
-
-  /* "string.to_py":44
- * @cname("__pyx_convert_PyStr_string_to_py_std__in_string")
- * cdef inline object __pyx_convert_PyStr_string_to_py_std__in_string(const string& s):
- *     return __Pyx_PyStr_FromStringAndSize(s.data(), s.size())             # <<<<<<<<<<<<<<
- * cdef extern from *:
- *     cdef object __Pyx_PyBytes_FromStringAndSize(const char*, size_t)
- */
-  __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyStr_FromStringAndSize(__pyx_v_s.data(), __pyx_v_s.size()); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 44, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_r = __pyx_t_1;
-  __pyx_t_1 = 0;
-  goto __pyx_L0;
-
-  /* "string.to_py":43
- * 
- * @cname("__pyx_convert_PyStr_string_to_py_std__in_string")
- * cdef inline object __pyx_convert_PyStr_string_to_py_std__in_string(const string& s):             # <<<<<<<<<<<<<<
- *     return __Pyx_PyStr_FromStringAndSize(s.data(), s.size())
- * cdef extern from *:
- */
-
-  /* function exit code */
-  __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("string.to_py.__pyx_convert_PyStr_string_to_py_std__in_string", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = 0;
-  __pyx_L0:;
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* "string.to_py":49
- * 
- * @cname("__pyx_convert_PyBytes_string_to_py_std__in_string")
- * cdef inline object __pyx_convert_PyBytes_string_to_py_std__in_string(const string& s):             # <<<<<<<<<<<<<<
- *     return __Pyx_PyBytes_FromStringAndSize(s.data(), s.size())
- * cdef extern from *:
- */
-
-static CYTHON_INLINE PyObject *__pyx_convert_PyBytes_string_to_py_std__in_string(std::string const &__pyx_v_s) {
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  PyObject *__pyx_t_1 = NULL;
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("__pyx_convert_PyBytes_string_to_py_std__in_string", 0);
-
-  /* "string.to_py":50
- * @cname("__pyx_convert_PyBytes_string_to_py_std__in_string")
- * cdef inline object __pyx_convert_PyBytes_string_to_py_std__in_string(const string& s):
- *     return __Pyx_PyBytes_FromStringAndSize(s.data(), s.size())             # <<<<<<<<<<<<<<
- * cdef extern from *:
- *     cdef object __Pyx_PyByteArray_FromStringAndSize(const char*, size_t)
- */
-  __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyBytes_FromStringAndSize(__pyx_v_s.data(), __pyx_v_s.size()); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 50, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_r = __pyx_t_1;
-  __pyx_t_1 = 0;
-  goto __pyx_L0;
-
-  /* "string.to_py":49
- * 
- * @cname("__pyx_convert_PyBytes_string_to_py_std__in_string")
- * cdef inline object __pyx_convert_PyBytes_string_to_py_std__in_string(const string& s):             # <<<<<<<<<<<<<<
- *     return __Pyx_PyBytes_FromStringAndSize(s.data(), s.size())
- * cdef extern from *:
- */
-
-  /* function exit code */
-  __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("string.to_py.__pyx_convert_PyBytes_string_to_py_std__in_string", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = 0;
-  __pyx_L0:;
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* "string.to_py":55
- * 
- * @cname("__pyx_convert_PyByteArray_string_to_py_std__in_string")
- * cdef inline object __pyx_convert_PyByteArray_string_to_py_std__in_string(const string& s):             # <<<<<<<<<<<<<<
- *     return __Pyx_PyByteArray_FromStringAndSize(s.data(), s.size())
- * 
- */
-
-static CYTHON_INLINE PyObject *__pyx_convert_PyByteArray_string_to_py_std__in_string(std::string const &__pyx_v_s) {
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  PyObject *__pyx_t_1 = NULL;
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("__pyx_convert_PyByteArray_string_to_py_std__in_string", 0);
-
-  /* "string.to_py":56
- * @cname("__pyx_convert_PyByteArray_string_to_py_std__in_string")
- * cdef inline object __pyx_convert_PyByteArray_string_to_py_std__in_string(const string& s):
- *     return __Pyx_PyByteArray_FromStringAndSize(s.data(), s.size())             # <<<<<<<<<<<<<<
- * 
- */
-  __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyByteArray_FromStringAndSize(__pyx_v_s.data(), __pyx_v_s.size()); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 56, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_r = __pyx_t_1;
-  __pyx_t_1 = 0;
-  goto __pyx_L0;
-
-  /* "string.to_py":55
- * 
- * @cname("__pyx_convert_PyByteArray_string_to_py_std__in_string")
- * cdef inline object __pyx_convert_PyByteArray_string_to_py_std__in_string(const string& s):             # <<<<<<<<<<<<<<
- *     return __Pyx_PyByteArray_FromStringAndSize(s.data(), s.size())
- * 
- */
-
-  /* function exit code */
-  __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("string.to_py.__pyx_convert_PyByteArray_string_to_py_std__in_string", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = 0;
-  __pyx_L0:;
-  __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
@@ -5660,6 +5520,10 @@ static void __pyx_tp_dealloc_5trees_AVLTreeString(PyObject *o) {
   (*Py_TYPE(o)->tp_free)(o);
 }
 
+static PyObject *__pyx_getprop_5trees_13AVLTreeString_rotations_num(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_5trees_13AVLTreeString_13rotations_num_1__get__(o);
+}
+
 static PyMethodDef __pyx_methods_5trees_AVLTreeString[] = {
   {"insert", (PyCFunction)__pyx_pw_5trees_13AVLTreeString_1insert, METH_O, 0},
   {"search", (PyCFunction)__pyx_pw_5trees_13AVLTreeString_3search, METH_O, 0},
@@ -5668,6 +5532,11 @@ static PyMethodDef __pyx_methods_5trees_AVLTreeString[] = {
   {"__reduce_cython__", (PyCFunction)__pyx_pw_5trees_13AVLTreeString_9__reduce_cython__, METH_NOARGS, 0},
   {"__setstate_cython__", (PyCFunction)__pyx_pw_5trees_13AVLTreeString_11__setstate_cython__, METH_O, 0},
   {0, 0, 0, 0}
+};
+
+static struct PyGetSetDef __pyx_getsets_5trees_AVLTreeString[] = {
+  {(char *)"rotations_num", __pyx_getprop_5trees_13AVLTreeString_rotations_num, 0, (char *)0, 0},
+  {0, 0, 0, 0, 0}
 };
 
 static PyTypeObject __pyx_type_5trees_AVLTreeString = {
@@ -5710,7 +5579,7 @@ static PyTypeObject __pyx_type_5trees_AVLTreeString = {
   0, /*tp_iternext*/
   __pyx_methods_5trees_AVLTreeString, /*tp_methods*/
   0, /*tp_members*/
-  0, /*tp_getset*/
+  __pyx_getsets_5trees_AVLTreeString, /*tp_getset*/
   0, /*tp_base*/
   0, /*tp_dict*/
   0, /*tp_descr_get*/
@@ -6727,65 +6596,65 @@ static int __Pyx_modinit_type_init_code(void) {
   if (PyObject_SetAttr(__pyx_m, __pyx_n_s_AVLTreeString, (PyObject *)&__pyx_type_5trees_AVLTreeString) < 0) __PYX_ERR(1, 57, __pyx_L1_error)
   if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5trees_AVLTreeString) < 0) __PYX_ERR(1, 57, __pyx_L1_error)
   __pyx_ptype_5trees_AVLTreeString = &__pyx_type_5trees_AVLTreeString;
-  if (PyType_Ready(&__pyx_type_5trees_TreapInt) < 0) __PYX_ERR(1, 72, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_5trees_TreapInt) < 0) __PYX_ERR(1, 76, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_5trees_TreapInt.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_5trees_TreapInt.tp_dictoffset && __pyx_type_5trees_TreapInt.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_5trees_TreapInt.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_TreapInt, (PyObject *)&__pyx_type_5trees_TreapInt) < 0) __PYX_ERR(1, 72, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5trees_TreapInt) < 0) __PYX_ERR(1, 72, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_TreapInt, (PyObject *)&__pyx_type_5trees_TreapInt) < 0) __PYX_ERR(1, 76, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5trees_TreapInt) < 0) __PYX_ERR(1, 76, __pyx_L1_error)
   __pyx_ptype_5trees_TreapInt = &__pyx_type_5trees_TreapInt;
-  if (PyType_Ready(&__pyx_type_5trees_TreapString) < 0) __PYX_ERR(1, 87, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_5trees_TreapString) < 0) __PYX_ERR(1, 91, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_5trees_TreapString.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_5trees_TreapString.tp_dictoffset && __pyx_type_5trees_TreapString.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_5trees_TreapString.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_TreapString, (PyObject *)&__pyx_type_5trees_TreapString) < 0) __PYX_ERR(1, 87, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5trees_TreapString) < 0) __PYX_ERR(1, 87, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_TreapString, (PyObject *)&__pyx_type_5trees_TreapString) < 0) __PYX_ERR(1, 91, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5trees_TreapString) < 0) __PYX_ERR(1, 91, __pyx_L1_error)
   __pyx_ptype_5trees_TreapString = &__pyx_type_5trees_TreapString;
-  if (PyType_Ready(&__pyx_type_5trees_RBTreeInt) < 0) __PYX_ERR(1, 102, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_5trees_RBTreeInt) < 0) __PYX_ERR(1, 106, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_5trees_RBTreeInt.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_5trees_RBTreeInt.tp_dictoffset && __pyx_type_5trees_RBTreeInt.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_5trees_RBTreeInt.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_RBTreeInt, (PyObject *)&__pyx_type_5trees_RBTreeInt) < 0) __PYX_ERR(1, 102, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5trees_RBTreeInt) < 0) __PYX_ERR(1, 102, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_RBTreeInt, (PyObject *)&__pyx_type_5trees_RBTreeInt) < 0) __PYX_ERR(1, 106, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5trees_RBTreeInt) < 0) __PYX_ERR(1, 106, __pyx_L1_error)
   __pyx_ptype_5trees_RBTreeInt = &__pyx_type_5trees_RBTreeInt;
-  if (PyType_Ready(&__pyx_type_5trees_RBTreeString) < 0) __PYX_ERR(1, 117, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_5trees_RBTreeString) < 0) __PYX_ERR(1, 121, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_5trees_RBTreeString.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_5trees_RBTreeString.tp_dictoffset && __pyx_type_5trees_RBTreeString.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_5trees_RBTreeString.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_RBTreeString, (PyObject *)&__pyx_type_5trees_RBTreeString) < 0) __PYX_ERR(1, 117, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5trees_RBTreeString) < 0) __PYX_ERR(1, 117, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_RBTreeString, (PyObject *)&__pyx_type_5trees_RBTreeString) < 0) __PYX_ERR(1, 121, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5trees_RBTreeString) < 0) __PYX_ERR(1, 121, __pyx_L1_error)
   __pyx_ptype_5trees_RBTreeString = &__pyx_type_5trees_RBTreeString;
-  if (PyType_Ready(&__pyx_type_5trees_SortedArrInt) < 0) __PYX_ERR(1, 132, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_5trees_SortedArrInt) < 0) __PYX_ERR(1, 136, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_5trees_SortedArrInt.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_5trees_SortedArrInt.tp_dictoffset && __pyx_type_5trees_SortedArrInt.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_5trees_SortedArrInt.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_SortedArrInt, (PyObject *)&__pyx_type_5trees_SortedArrInt) < 0) __PYX_ERR(1, 132, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5trees_SortedArrInt) < 0) __PYX_ERR(1, 132, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_SortedArrInt, (PyObject *)&__pyx_type_5trees_SortedArrInt) < 0) __PYX_ERR(1, 136, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5trees_SortedArrInt) < 0) __PYX_ERR(1, 136, __pyx_L1_error)
   __pyx_ptype_5trees_SortedArrInt = &__pyx_type_5trees_SortedArrInt;
-  if (PyType_Ready(&__pyx_type_5trees_SortedArrString) < 0) __PYX_ERR(1, 148, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_5trees_SortedArrString) < 0) __PYX_ERR(1, 152, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_5trees_SortedArrString.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_5trees_SortedArrString.tp_dictoffset && __pyx_type_5trees_SortedArrString.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_5trees_SortedArrString.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_SortedArrString, (PyObject *)&__pyx_type_5trees_SortedArrString) < 0) __PYX_ERR(1, 148, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5trees_SortedArrString) < 0) __PYX_ERR(1, 148, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_SortedArrString, (PyObject *)&__pyx_type_5trees_SortedArrString) < 0) __PYX_ERR(1, 152, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5trees_SortedArrString) < 0) __PYX_ERR(1, 152, __pyx_L1_error)
   __pyx_ptype_5trees_SortedArrString = &__pyx_type_5trees_SortedArrString;
   __Pyx_RefNannyFinishContext();
   return 0;
@@ -7030,12 +6899,12 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_test, __pyx_t_1) < 0) __PYX_ERR(1, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "string.to_py":55
+  /* "string.from_py":13
  * 
- * @cname("__pyx_convert_PyByteArray_string_to_py_std__in_string")
- * cdef inline object __pyx_convert_PyByteArray_string_to_py_std__in_string(const string& s):             # <<<<<<<<<<<<<<
- *     return __Pyx_PyByteArray_FromStringAndSize(s.data(), s.size())
- * 
+ * @cname("__pyx_convert_string_from_py_std__in_string")
+ * cdef string __pyx_convert_string_from_py_std__in_string(object o) except *:             # <<<<<<<<<<<<<<
+ *     cdef Py_ssize_t length = 0
+ *     cdef const char* data = __Pyx_PyObject_AsStringAndSize(o, &length)
  */
 
   /*--- Wrapped vars code ---*/
