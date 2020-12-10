@@ -195,6 +195,7 @@ TEST(treap, can_create_treap_with_strings) {
     st.Insert("a");
     st.Insert("b");
     st.Insert("c");
+    st.printDataInOrder();
     ASSERT_EQ(st.root->data, "b");
 } 
 
