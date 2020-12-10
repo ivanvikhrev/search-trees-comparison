@@ -7,54 +7,42 @@
 template <class T>
 class AVLTree {
 private:
-    node<T> *RightRotation(node<T> *n) {
+    node<T> *RightRotation(node <T> *n) {
         node<T> *p, *p1;
         p = n;
         p1 = p->left;
-
+ 
         p->left = p1->right;
         p1->right = p;
-
+ 
+        p->info = std::max(Height(p->left), Height(p->right));
+        p1->info = std::max(Height(p1->left), p->info);
+ 
         return p1;
     }
 
-    node<T> *LeftRotation(node<T> *n) {
+    node<T> *LeftRotation(node <T> *n) {
         node<T> *p, *p1;
         p = n;
         p1 = p->right;
-
+ 
         p->right = p1->left;
         p1->left = p;
-
+ 
+        p->info = std::max(Height(p->left), Height(p->right));
+        p1->info = std::max(Height(p1->left), p->info);
+ 
         return p1;
     }
 
-    node<T> *DoubleLeftRotation(node<T> *n) {
-        node<T> *p, *p1, *p2;
-        p = n;
-        p1 = p->right;
-        p2 = p1->left;
-
-        p->right = p2->left;
-        p1->left = p2->right;
-        p2->left = p;
-        p2->right = p1;
-
-        return p2;
+    node<T> *DoubleLeftRotation(node <T> *n) {
+        n->right = RightRotation(n->right);
+        return LeftRotation(n);
     }
-
-    node<T> *DoubleRightRotation(node<T> *n) {
-        node<T> *p, *p1, *p2;
-        p = n;
-        p1 = p->left;
-        p2 = p1->right;
-
-        p->left = p2->right;
-        p1->right = p2->left;
-        p2->right = p;
-        p2->left = p1;
-
-        return p2;
+ 
+    node<T> *DoubleRightRotation(node <T> *n) {    
+        n->left = LeftRotation(n->left);
+        return RightRotation(n);
     }
 
     node<T> *DeleteR(node<T> *p, T data) {
@@ -72,8 +60,8 @@ private:
 
             if (!rc) return lc;
             node<T>* min = rc;
-            while (rc->left != nullptr)
-                min = rc;
+            while (min->left != nullptr)
+                min = min->left;
             min->right = DeleteMinR(rc);
             min->left = lc;
 
@@ -93,13 +81,13 @@ private:
         return Height(p->left) - Height(p->right);
     }
 
-    node<T> *Balance(node<T> *p) {
+    node<T> *Balance(node <T> *p) {
         CalcHeight(p);
-
-        if (BalanceFactor(p) == 2 && BalanceFactor(p->left) == 1) p = RightRotation(p);
-        if (BalanceFactor(p) == -2 && BalanceFactor(p->right) == -1) p = LeftRotation(p);
-        if (BalanceFactor(p) == 2 && BalanceFactor(p->left) == 1) p = DoubleRightRotation(p);
-        if (BalanceFactor(p) == -2 && BalanceFactor(p->right) == 1) p = DoubleLeftRotation(p);
+ 
+        if (BalanceFactor(p) > 1 && BalanceFactor(p->left) >= 0) { p = RightRotation(p); rotations_num++; }
+        if (BalanceFactor(p) < -1 && BalanceFactor(p->right) <= 0) { p = LeftRotation(p); rotations_num++;}
+        if (BalanceFactor(p) > 1 && BalanceFactor(p->left) <0) { p = DoubleRightRotation(p); rotations_num++; }
+        if (BalanceFactor(p) < -1 && BalanceFactor(p->right) >0) { p = DoubleLeftRotation(p); rotations_num++; }
         return p;
     }
 
@@ -126,16 +114,19 @@ private:
         p->left = DeleteMinR(p->left);
         return Balance(p);
     }
+
 public:
     node<T> *root;
+    int rotations_num;
 
-    AVLTree(std::vector<T> inp) {
+    AVLTree(std::vector<T> inp) : rotations_num(0) {
         for (unsigned int i = 0; i < inp.size(); i++)
             Insert(inp[i]);
     }
 
     AVLTree() {
         this->root = nullptr;
+        rotations_num = 0;
     }
 
     void Clear(node<T> *p) {
@@ -150,7 +141,7 @@ public:
         return p ? p->info : 0;
     }
 
-    void Insert(T data) { root = InsertR(root, data); }
+    void Insert(T data) { rotations_num = 0; root = InsertR(root, data); }
 
     void Delete(T data) { root = DeleteR(root, data); }
 

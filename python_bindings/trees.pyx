@@ -37,6 +37,10 @@ cdef class SplayTreeString:
 
 cdef class AVLTreeInt:
     cdef AVLTree[int] tree
+    
+    @property
+    def rotations_num(self):
+        return self.tree.rotations_num
 
     def insert(self, x):
         self.tree.Insert(x)

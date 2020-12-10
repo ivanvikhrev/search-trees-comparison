@@ -23,7 +23,7 @@ public:
         if (m.size() != 0 && *std::prev(pos) != data)
             m.insert(pos, data);
         else
-            pos = m.begin();
+            m.insert(m.begin(), data);
     }
 
     void Delete(T data) {

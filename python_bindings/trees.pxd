@@ -9,6 +9,7 @@ cdef extern from "../trees/include/splay_tree.h":
 
 cdef extern from "../trees/include/avl_tree.h":
     cdef cppclass AVLTree[T]:
+        int rotations_num
         AVLTree()
         void Insert(T)
         T Search(T)
