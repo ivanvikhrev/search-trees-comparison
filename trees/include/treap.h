@@ -31,7 +31,7 @@ class Treap {
             if (p->left != nullptr && p->left->info > p->info)
                 p = RightRotation(p);
         }
-        else {
+        else if (data > p->data) {
             p->right = InsertR(p->right, data);
             if (p->right != nullptr && p->right->info > p->info)
                 p = LeftRotation(p);
@@ -72,6 +72,7 @@ class Treap {
 public:
     node <T> *root;
     Treap(std::vector<T> inp) {
+        root = nullptr;
         for (unsigned int i = 0; i < inp.size(); i++)
             Insert(inp[i]);
     }

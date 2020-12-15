@@ -18,14 +18,14 @@ public:
 
     double Search(T data) {
         auto start = std::chrono::high_resolution_clock::now();
-        
-        m[std::find(m.begin(), m.end(), data) - m.begin()];
-        
+
+        m[std::lower_bound(m.begin(), m.end(), data) - m.begin()];
+
         auto stop = std::chrono::high_resolution_clock::now();
-        std::chrono::duration<double> time_span = 
+        std::chrono::duration<double> time_span =
             std::chrono::duration_cast<std::chrono::duration<double>>(stop - start);
-        return static_cast<double>(time_span.count()); 
-        //return  m[std::find(m.begin(), m.end(), data) - m.begin()];
+        return static_cast<double>(time_span.count());
+        //return  m[std::lower_bound(m.begin(), m.end(), data) - m.begin()];
     }
 
     double Insert(T data) {
@@ -36,24 +36,24 @@ public:
             m.insert(pos, data);
         else
             m.insert(m.begin(), data);
-        
+
         auto stop = std::chrono::high_resolution_clock::now();
-        std::chrono::duration<double> time_span = 
+        std::chrono::duration<double> time_span =
             std::chrono::duration_cast<std::chrono::duration<double>>(stop - start);
-        return static_cast<double>(time_span.count()); 
+        return static_cast<double>(time_span.count());
     }
 
     double Delete(T data) {
         auto start = std::chrono::high_resolution_clock::now();
-        
+
         std::vector<T>::iterator pos = std::find(m.begin(), m.end(), data);
         if (*pos == data)
             m.erase(pos);
 
         auto stop = std::chrono::high_resolution_clock::now();
-        std::chrono::duration<double> time_span = 
+        std::chrono::duration<double> time_span =
             std::chrono::duration_cast<std::chrono::duration<double>>(stop - start);
-        return static_cast<double>(time_span.count()); 
+        return static_cast<double>(time_span.count());
     }
 
     void printDataInOrder() {

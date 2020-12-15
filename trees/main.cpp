@@ -29,6 +29,15 @@ std::vector<int> randVec(size_t size) {
     return vec;
 }
 
+std::vector<int> UniqueRandN(int n) {
+    std::vector<int> res(n);
+    for (int i = 0; i < n; i++) res[i] = 2 * i + 1;
+    std::random_device rd;
+    std::mt19937 g(rd());
+    std::shuffle(res.begin(), res.end(), g);
+    return res;
+}
+
 TEST(node, can_create_node_with_data) {
     ASSERT_NO_THROW(node<int> n(5));
 }
@@ -76,9 +85,32 @@ TEST(sorted_array, can_create_sorted_array) {
 }
 
 TEST(sorted_array, can_insert_in_sorted_array) {
+    std::vector<int> v = UniqueRandN(10);
     SortedArray<int> tree;
-    tree.Insert(1);
-    ASSERT_EQ(tree.Search(1), 1);
+    int i = 0;
+    int d = 10;
+
+    //for (auto el : v) {
+    //    ++i;
+    //    auto t = tree.Insert(el);
+    //    if (i%d == 0) {
+    //        d *= 10;
+    //        std::cout << i << " " << t << "ms" << std::endl;
+    //    }
+    //}
+
+    for (auto el : v) {
+        i++;
+        tree.Insert(el);
+        auto s = tree.Search(el);
+        std::cout << el << " " << s <<  std::endl;
+        /*if (i%d == 0) {
+            d *= 10;
+            std::cout << i << " " << t << "ms" << std::endl;
+        }*/
+    }
+    //tree.Insert(1);
+    //ASSERT_EQ(tree.Search(1), 1);
 }
 
 TEST(splay_tree, can_create_splay_tree) {
@@ -191,6 +223,13 @@ TEST(splay_tree, strings_in_splay_tree_are_ordered) {
 }
 
 TEST(treap, can_create_treap_with_strings) {
+    std::vector<int> v = randVec(100);
+    Treap<int> st(v);
+    st.printDataInOrder();
+    //ASSERT_EQ(st.root->data, "b");
+}
+
+TEST(treap, can_create_treap_with_int) {
     Treap<std::string> st;
     st.Insert("a");
     st.Insert("b");
