@@ -1,3 +1,4 @@
+#include <random>
 #ifndef TREAP_H_
 #define TREAP_H_
 template <class T>
@@ -23,7 +24,7 @@ class Treap {
     node <T> *InsertR(node <T>* p, T data) {
         if (p == nullptr) {
             p = new node <T>(data);
-            p->info = rand() % 100;
+            p->info = dist(gen);
             return p;
         }
         if (data < p->data) {
@@ -71,13 +72,17 @@ class Treap {
     }
 public:
     node <T> *root;
+    std::random_device rd;
+    std::mt19937 gen;
+    std::uniform_int_distribution<int> dist;
+
     Treap(std::vector<T> inp) {
         root = nullptr;
         for (unsigned int i = 0; i < inp.size(); i++)
             Insert(inp[i]);
     }
-    Treap() {
-        this->root = nullptr;
+    Treap() : gen(rd()), dist(0, 10000000) {
+      this->root = nullptr;
     }
 
     double Insert(T data) {
@@ -88,6 +93,7 @@ public:
         auto stop = std::chrono::high_resolution_clock::now();
         std::chrono::duration<double> time_span = 
             std::chrono::duration_cast<std::chrono::duration<double>>(stop - start);
+        //BrokenStateCheck(root);
         return static_cast<double>(time_span.count());     
     }
 
@@ -104,6 +110,7 @@ public:
         auto stop = std::chrono::high_resolution_clock::now();
         std::chrono::duration<double> time_span = 
             std::chrono::duration_cast<std::chrono::duration<double>>(stop - start);
+        //BrokenStateCheck(root);
         return static_cast<double>(time_span.count());     
         //return cur ? cur->data : T();
     }
@@ -116,6 +123,7 @@ public:
         auto stop = std::chrono::high_resolution_clock::now();
         std::chrono::duration<double> time_span = 
             std::chrono::duration_cast<std::chrono::duration<double>>(stop - start);
+        //BrokenStateCheck(root);
         return static_cast<double>(time_span.count());     
     
     }
@@ -132,6 +140,25 @@ public:
             TraverseInOrder(root->left);
             std::cout << root->data << " ";
             TraverseInOrder(root->right);
+        }
+    }
+
+    void BrokenStateCheck(node<T> *p) {
+        if (p != nullptr) {
+            if (p->left != nullptr) {
+                if (p->left->data > p->data)
+                    std::cout << "Broken BST\n";
+                if (p->left->info > p->info)
+                    std::cout << "Broken Heap\n";
+                BrokenStateCheck(p->left);
+            }
+            if (p->right != nullptr) {
+                if (p->right->data < p->data)
+                    std::cout << "Broken BST\n";
+                if (p->right->info > p->info)
+                    std::cout << "Broken Heap\n";
+                BrokenStateCheck(p->right);
+            }
         }
     }
 };

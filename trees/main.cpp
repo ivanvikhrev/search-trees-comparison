@@ -238,6 +238,39 @@ TEST(treap, can_create_treap_with_int) {
     ASSERT_EQ(st.root->data, "b");
 } 
 
+TEST(treap, stress_test) {
+    std::random_device rd;     // only used once to initialise (seed) engine
+    std::mt19937 rng(rd());    // random-number engine used (Mersenne-Twister in this case)
+    Treap<int> st;
+    std::vector<int> v = randVec(1000000);
+
+    double mi = 0, md = 0, ms = 0;
+
+    auto start = std::chrono::high_resolution_clock::now();
+    int k = 0;
+    for (auto el : v) {
+        st.Insert(el);
+        if (k == 0) { k++; continue; }
+        std::uniform_int_distribution<int> uni(0, k);
+        for (int i = 0; i < 5; ++i) {
+            auto randNum = uni(rng);
+            //std::cout << "k is : " <<  k << "rand num is " << randNum << std::endl;
+            md += st.Delete(v[randNum]) / 5;
+            mi += st.Insert(v[randNum]) / 5;
+            ms += st.Search(v[uni(rng)]) / 5;
+        }
+        k++;
+    }
+    auto stop = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> time_span =
+        std::chrono::duration_cast<std::chrono::duration<double>>(stop - start);
+    std::cout << "time " << time_span.count() << std::endl;
+    std::cout << "mi " << mi * 10*10*10 / k << std::endl;
+    std::cout << "md " << md * 10 * 10 * 10 / k << std::endl;
+    std::cout << "ms " << ms * 10 * 10 * 10 / k << std::endl;
+   // ASSERT_EQ(st.root->data, "b");
+}
+
 int main(int argc, char* argv[]) {
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
