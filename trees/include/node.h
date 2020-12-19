@@ -1,14 +1,14 @@
 #ifndef TREE_NODE_H_
 #define TREE_NODE_H_
-template <class T>
+template <class T, class P = int>
 struct node {
-    int info;
+    P info;
     T data;
-    node<T> *right;
-    node<T> *left;
-    node<T>* parent;
+    node<T, P> *right;
+    node<T, P> *left;
+    node<T, P>* parent;
     node(T d) { data = d;  parent = left = right = nullptr; }
-    node(T d, node<T>* p) { data = d;  parent = p; left = right = nullptr; }
+    node(T d, node<T, P>* p) { data = d;  parent = p; left = right = nullptr; }
 
     int max_depth() const {
         const int left_depth = left ? left->max_depth() : 0;

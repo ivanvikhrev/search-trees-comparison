@@ -3,27 +3,27 @@
 #define TREAP_H_
 template <class T>
 class Treap {
-    node <T> *LeftRotation(node <T> *p) {
-        node <T> *p1 = p->right;
-        node <T> *p2 = p->right->left;
+    node<T, size_t> *LeftRotation(node<T, size_t> *p) {
+        node<T, size_t> *p1 = p->right;
+        node<T, size_t> *p2 = p->right->left;
         p1->left = p;
         p->right = p2;
         p = p1;
         return p;
     }
 
-    node <T> *RightRotation(node <T> *p) {
-        node <T> *p1 = p->left;
-        node <T> *p2 = p->left->right;
+    node<T, size_t> *RightRotation(node<T, size_t> *p) {
+        node<T, size_t> *p1 = p->left;
+        node<T, size_t> *p2 = p->left->right;
         p1->right = p;
         p->left = p2;
         p = p1;
         return p;
     }
 
-    node <T> *InsertR(node <T>* p, T data) {
+    node<T, size_t> *InsertR(node<T, size_t>* p, T data) {
         if (p == nullptr) {
-            p = new node <T>(data);
+            p = new node<T, size_t>(data);
             p->info = dist(gen);
             return p;
         }
@@ -40,7 +40,7 @@ class Treap {
         return p;
     }
 
-    node<T> *DeleteR(node<T> *p, T data) {
+    node<T, size_t> *DeleteR(node<T, size_t> *p, T data) {
         if (p == nullptr) return nullptr;
         if (data < p->data)
             p->left = DeleteR(p->left, data);
@@ -62,7 +62,7 @@ class Treap {
                 }
             }
             else {
-                node<T> * child = (p->left != nullptr) ? p->left : p->right;
+                node<T, size_t> * child = (p->left != nullptr) ? p->left : p->right;
                 delete p;
                 p = child;
             }
@@ -70,37 +70,50 @@ class Treap {
         }
         return p;
     }
+
+    void Clear(node<T, size_t>* p) {
+        if (p) {
+            Clear(p->left);
+            Clear(p->right);
+            delete p;
+        }
+    }
 public:
-    node <T> *root;
+    node <T, size_t> *root;
     std::random_device rd;
     std::mt19937 gen;
-    std::uniform_int_distribution<int> dist;
+    std::uniform_int_distribution<size_t> dist;
 
     Treap(std::vector<T> inp) {
         root = nullptr;
         for (unsigned int i = 0; i < inp.size(); i++)
             Insert(inp[i]);
     }
-    Treap() : gen(rd()), dist(0, 10000000) {
+
+    Treap() : gen(rd()), dist(0, std::numeric_limits<size_t>::max()) {
       this->root = nullptr;
+    }
+
+    ~Treap() {
+        Clear(root);
     }
 
     double Insert(T data) {
         auto start = std::chrono::high_resolution_clock::now();
 
         root = InsertR(root, data);
-             
+
         auto stop = std::chrono::high_resolution_clock::now();
-        std::chrono::duration<double> time_span = 
+        std::chrono::duration<double> time_span =
             std::chrono::duration_cast<std::chrono::duration<double>>(stop - start);
         //BrokenStateCheck(root);
-        return static_cast<double>(time_span.count());     
+        return static_cast<double>(time_span.count());
     }
 
     double Search(T data) {
         auto start = std::chrono::high_resolution_clock::now();
 
-        node<T> *cur = root;
+        node<T, size_t> *cur = root;
         while (cur != nullptr && cur->data != data)
             if (data > cur->data)
                 cur = cur->right;
@@ -108,24 +121,24 @@ public:
                 cur = cur->left;
 
         auto stop = std::chrono::high_resolution_clock::now();
-        std::chrono::duration<double> time_span = 
+        std::chrono::duration<double> time_span =
             std::chrono::duration_cast<std::chrono::duration<double>>(stop - start);
         //BrokenStateCheck(root);
-        return static_cast<double>(time_span.count());     
+        return static_cast<double>(time_span.count());
         //return cur ? cur->data : T();
     }
 
     double Delete(T data) {
         auto start = std::chrono::high_resolution_clock::now();
-        
+
         root = DeleteR(root, data);
 
         auto stop = std::chrono::high_resolution_clock::now();
-        std::chrono::duration<double> time_span = 
+        std::chrono::duration<double> time_span =
             std::chrono::duration_cast<std::chrono::duration<double>>(stop - start);
         //BrokenStateCheck(root);
-        return static_cast<double>(time_span.count());     
-    
+        return static_cast<double>(time_span.count());
+
     }
 
     void printDataInOrder() {
@@ -133,7 +146,7 @@ public:
         std::cout << std::endl;
     }
 
-    void TraverseInOrder(node <T> *root)
+    void TraverseInOrder(node<T, size_t> *root)
     {
         if (root != nullptr)
         {
@@ -143,7 +156,7 @@ public:
         }
     }
 
-    void BrokenStateCheck(node<T> *p) {
+    void BrokenStateCheck(node<T, size_t> *p) {
         if (p != nullptr) {
             if (p->left != nullptr) {
                 if (p->left->data > p->data)
