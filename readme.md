@@ -1,5 +1,5 @@
 # Comparison of Search Trees
-Course "Design and Analysis of Algorithms" task.
+"Design and Analysis of Algorithms" сourse task.
 Comparison of the next searching data structure:
 1. Splay tree
 2. AVL tree
